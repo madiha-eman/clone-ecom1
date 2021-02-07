@@ -5,13 +5,13 @@ import Close from './icon/close.svg'
 import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
- import clsx from 'clsx';
-import './style.css'
+import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
 import * as FaIcons from 'react-icons/fa';
 // import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
+import { Icon } from 'react-icons-kit'
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import { IconContext } from 'react-icons/lib';
@@ -24,7 +24,23 @@ import egg from './icon/egg1.png'
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
 import Filters from '../mainpages/products/Filters'
+import Footer2 from '../footer/Footer2'
+import MainPages from '../mainpages/Pages'
 
+import MenuIcon from '@material-ui/icons/Menu';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import Switch from '@material-ui/core/Switch';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormGroup from '@material-ui/core/FormGroup';
+import MenuItem from '@material-ui/core/MenuItem';
+import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
+import SimpleModal from './modal/modal'
+import { useTranslation } from 'react-i18next';
+import {menu} from 'react-icons-kit/iconic/menu'
+// import {menu} from 'react-icons-kit/entypo/menu'
+import i18next from 'i18next';
+import Rightsidebar from '../RightCartbar/Rightsidebar'
+import BottomAppBar from './bottomheader/BottomAppBar'
 
 const Nav = styled.div`
   background: #ffc40c;
@@ -37,7 +53,7 @@ const Nav = styled.div`
 const NavIcon = styled(Link)`
   margin-left: 1.5rem;
   font-size: 1.5rem;
-  height: 20px;
+  height: 25px;
   display: flex;
   color: #4c4c4c;
   justify-content: flex-start;
@@ -57,11 +73,22 @@ const SidebarNav = styled.nav`
   top: 54px;
   left: ${({ sidebar }) => (sidebar ? 'fixed' :  '-100%')};
   transition: 350ms;
+  transition: 0.5s ease-in;
   z-index: 10;
   padding: 0 19px;
   position: ${({ sidebar }) => (sidebar ? 'fixed' :  '-100%')};  
+  @media (max-width: 760px) {
+    background:black;
+    left: ${({ sidebar }) => (sidebar ? '-80%' :  '-1%')};
 
-`;
+  }
+  @media (max-width: 554px) {
+    background:black;
+    left: ${({ sidebar }) => (sidebar ? '-90%' :  '-1%')};
+
+  }
+`
+;
 
 const SidebarWrap = styled.div`
   width: 100%;
@@ -78,11 +105,28 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     // width: 400,
-    // marginLeft:'20px',
+    marginLeft:'20px',
     marginRight:'8px',
+  
   },
   title1:{
     fontFamily: 'Satisfy, cursive',
+    textDecoraction: 'none',
+    fontSize: '29px',
+    // marginRight:'20px',
+    fontWeight: '600',
+    display: 'none',
+    color:'#191919',
+    opacity:'0.8',
+    cursor: 'pointer',
+    [theme.breakpoints.up('sm')]: {
+      display: 'block',
+                                                       
+    },
+  },
+  Link:{
+    // fontFamily: 'Satisfy, cursive',
+    textDecoraction: 'none',
     fontSize: '29px',
     // marginRight:'20px',
     fontWeight: '600',
@@ -105,7 +149,7 @@ const useStyles = makeStyles((theme) => ({
   },
   title2:{
     display: 'none',
-  //  marginBottom: '19px',
+    //  marginBottom: '19px',
     color:'#4c4c4c',
     fontSize: '15px',
     fontWeight: 'bold',
@@ -142,10 +186,10 @@ const useStyles = makeStyles((theme) => ({
   },
 
   input: {
-    marginLeft: theme.spacing(1),
-    // marginRight:6,
+    marginLeft: theme.spacing(2),
+    width: '100ch',
     flex: 1,
-    [theme.breakpoints.up('md','sm')]: {
+    [theme.breakpoints.up('sm')]: {
       width: '20ch',
     },
   },
@@ -183,7 +227,11 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: 250,
+    marginLeft: 0,
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: 250,
+                                                       
+    },
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -191,6 +239,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+    
 
   },
   mobile:{
@@ -204,14 +253,37 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header() {
+  const { t } = useTranslation();
+
+  function handleClick(lang) {
+    i18next.changeLanguage(lang)
+  }
     const classes = useStyles();
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
     const [cart] = state.userAPI.cart
-    const [menu, setMenu] = useState(false)
+    // const [menu, setMenu] = useState(false)
     const [search, setSearch] = state.productsAPI.search
     const [category, setCategory] = state.productsAPI.category
+
+
+    const [auth, setAuth] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+  
+    const handleChange = (event) => {
+      setAuth(event.target.checked);
+    };
+  
+    const handleMenu = (event) => {
+      setAnchorEl(event.currentTarget);
+    };
+  
+    const handleClose = () => {
+      setAnchorEl(null);
+    };
+  
 
 
     const handleCategory = e => {
@@ -243,16 +315,50 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
+            <div>
+              <IconButton
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleMenu}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                <MenuItem >Profile</MenuItem>
+                <MenuItem ><Link to="/" onClick={logoutUser}>Logout</Link></MenuItem>
+              </Menu>
+            </div>
                 <li><Link to="/history">History</Link></li>
-                <li><Link to="/" onClick={logoutUser}>Logout</Link></li>
+                
             </>
         )
     }
 
 
-    const styleMenu = {
-        left: menu ? 0 : "-100%"
-    }
+    // const styleMenu = {
+    
+     
+    //      display: menu ? 0 : 'close'
+        
+      
+       
+    // }
 
     return (
         <>
@@ -262,7 +368,7 @@ function Header() {
         <Nav>
           <Grid xs={1} md={1} lg={1}>
           <NavIcon to='#'>
-          <FaIcons.FaBars onClick={showSidebar} /> 
+         <Icon icon={menu} size={28} alt="" width="30" onClick={showSidebar} /> 
           </NavIcon>
           </Grid>
           <Grid xs={0} md={0} lg={0}>
@@ -276,7 +382,7 @@ function Header() {
              
             </Typography>
             </Grid>
-            <Grid xs={8} md={8} lg={8} xl={8}>
+            <Grid xs={8} sm={9} md={8} lg={8} xl={8}>
           <Paper component="form" className={classes.root2}>
           {/* <input type="text" value={search} placeholder="Enter your search!"
             onChange={e => setSearch(e.target.value.toLowerCase())} /> */}
@@ -292,7 +398,14 @@ function Header() {
          </Paper>
          </Grid>
          <Divider className={classes.divider} orientation="vertical" />
-         <Grid xs={3} md={3} xl={3} lg={3}>
+         <div className="menu"
+          // onClick={() => setMenu(!menu)}
+          >
+                <SimpleModal/>
+
+            </div>
+         {/* <div className='azab' style={styleMenu}> */}
+         <Grid xs={3}  md={3} xl={3} lg={3}>
          <div className="help">
          <Typography className={classes.title2} variant="h6">
          <IoIcons.IoMdHelpCircle  className={classes.markicon}/>
@@ -306,7 +419,7 @@ function Header() {
             <Grid xs={2} md={2} lg={2} xl={3}>
           <div className='lang'>
           <Typography className={classes.title3} variant="h6">
-             <span className='eng'> EN </span> | বাং 
+             <span className='eng' onClick={()=>handleClick('en')} > EN </span> | <span onClick={()=>handleClick('ban')}> বাং</span> 
              
             </Typography>
             </div>
@@ -317,9 +430,10 @@ function Header() {
           {
                      isLogged ? loggedRouter() :<Link to="/login">Sign in</Link>
                 }
-               {/* <SimpleModal/>  */}
+               
             </div>
-            </Grid>
+          </Grid>
+          {/* </div> */}
         </Nav>
         </AppBar>
         </Grid>
@@ -347,14 +461,17 @@ function Header() {
           {/* <Rghtsidebar /> */}
           {/* <Rightsidebar/>
          <Products/>  */}
-  
+         <Rightsidebar/>
+         <h3>{t('Thanks.1')}</h3>  <h3>{t('Why.1')}</h3> 
+         <MainPages />
          </Typography>
-         {/* <Footer2 /> */}
+         <Footer2/>
    
        
         </main>
+        <BottomAppBar/>
         </>
-        // <header>
+        /* // <header>
         //     <div className="menu" onClick={() => setMenu(!menu)}>
         //         <img src={Menu} alt="" width="30" />
         //     </div>
@@ -370,17 +487,17 @@ function Header() {
 
         //         {isAdmin && adminRouter()}
 
-        //         {
-        //             isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
+        //         { */
+        /* //             isLogged ? loggedRouter() : <li><Link to="/login">Login ✥ Register</Link></li>
         //         }
 
         //         <li onClick={() => setMenu(!menu)}>
         //             <img src={Close} alt="" width="30" className="menu" />
         //         </li>
 
-        //     </ul>
+        //     </ul> */
 
-        //     {
+            
         //         isAdmin ? '' 
         //         :<div className="cart-icon">
         //             <span>{cart.length}</span>

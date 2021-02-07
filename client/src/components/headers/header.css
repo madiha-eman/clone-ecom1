@@ -1,3 +1,130 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Satisfy&display=swap');
+
+/* sign in div */
+.div-signin{
+    background-color:#ee496a;     
+    height: 58px;
+    /* width: 100% !important;  */
+    text-align: center;
+}
+@media screen and (max-width: 600px){
+    .div-signin{
+        display: none;
+    }
+}
+.div-signin1{
+    
+}
+.button3{
+    height: 56px !important;
+    width: 356px !important;
+    background-color: #ee496a !important;
+    color: whitesmoke !important;
+    margin-top: 30px !important;
+    font-weight: bold;
+
+}
+.button3:hover{
+    background-color: #eb5c78 !important;
+}
+.menu{
+    display: none;
+}
+
+/* :vertical text in middle */
+.h1{
+    overflow: hidden;
+    text-align: center;
+    color: rgb(95, 93, 93);
+  }
+  
+  .h1:before,
+  .h1:after {
+    background-color: rgb(219, 215, 215);
+    content: "";
+    display: inline-block;
+    height: 0.5px;
+    position: relative;
+    vertical-align: middle;
+    width: 36%;
+  }
+  
+  .h1:before {
+    right: 2.3em;
+    margin-left: -52%;  }
+  
+  .h1:after {
+    left: 1.8em;
+    margin-right: -50%;
+
+  }
+
+/* .sign-in{
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        font-weight: bold!important;
+        color:#4c4c4c!important;
+   
+    }
+   
+    .title{
+        font-family: 'Lobster', cursive;
+        color:rgb(73, 69, 69);
+    }  */
+
+
+    /* nav language color */
+    .eng{
+        color: red;
+        padding-right: 1px;
+        cursor: pointer;
+    }
+
+    .help{
+        background-image: linear-gradient(to right white, grey);
+        /* box-sizing: content-box; */
+        /* height: 58px; */
+        /* width: 130px; */
+        /* margin-bottom: 50px; */
+        text-align: center;
+        margin: 0;
+    }
+    .lang{
+        box-sizing: content-box;
+        /* height: 58px; */
+        /* margin-bottom: 4px !important; */
+        /* width: 120px; */
+        text-align: center;
+        margin: 0;
+}
+h2{
+    color: grey;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+    /* footer css */
+.foot{
+    width: 100%;
+    background-color: rgb(214, 210, 210);
+    /* padding: 2px; */
+    padding-left: 8px;
+
+    margin-top: auto;
+}
+@media screen and (max-width: 768px){
+    .mobile{
+        left:-250px;
+    }
+}
+
 /* header{
     min-height: 70px;
     width: 100%;

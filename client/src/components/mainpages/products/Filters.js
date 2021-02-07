@@ -18,17 +18,16 @@ function Filters() {
     return (
         <div className="filter_menu">
             <div className="row">
-                <span>Filters: </span>
-                <select name="category" value={category} onChange={handleCategory} >
+                <div name="category" value={category} onChange={handleCategory} >
                     <option value=''>All Products</option>
                     {
                         categories.map(category => (
-                            <option value={"category=" + category._id} key={category._id}>
+                            <h5 value={"category=" + category._id} key={category._id}>
                                 {category.name}
-                            </option>
+                            </h5>
                         ))
                     }
-                </select>
+                </div>
             </div>
 
             {/* {/* <input type="text" value={search} placeholder="Enter your search!"

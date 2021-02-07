@@ -1,0 +1,30 @@
+.dropdown ul{
+    font-size: 19px;
+    color: #4f4f4f;
+    font-family: 'Segoe UI',Helvetica,'Droid Sans',Arial,'lucida grande',tahoma,verdana,arial,sans-serif;
+
+}
+
+.dropdown ul li{
+    list-style: none;
+    padding: 15px;
+    cursor: pointer;
+    margin-bottom: 0;
+    text-decoration: none;
+
+}
+.first-child {
+    background: #4f4f4f;
+    color: #fff;
+}
+.link1{
+    text-decoration: none!important;
+    list-style: none;
+    color: #4f4f4f!important;
+}
+.sign-child, .eng1, .help-child{
+    margin-left: 6px;
+}
+/* .icon1{
+    margin-left: 10px;
+} */

@@ -2,30 +2,33 @@
   padding: 0;
   box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+
+
+
+
+
+
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
 .App{
-  max-width: 1230px;
+  /* max-width: 1230px; */
   min-height: 100vh;
-  margin: 0 auto;
-  padding: 0 20px;
+  /* margin: 0 auto; */
+  /* padding: 0 20px; */
   box-shadow: 0 0 35px #eee;
 }
 a{
   text-decoration: none;
 }
-ul li {
+/* ul li {
   list-style: none;
-}
+} */
 button{
   border: none;
   outline: none;
@@ -35,6 +38,9 @@ button{
 
 /* ---------------- Header ------------ */
 @import url("./components/headers/header.css");
+
+/* ---------------- Footer ------------ */
+@import url("./components/footer/App.css");
 
 /* ------------- Products -------------- */
 
@@ -69,12 +75,13 @@ button{
   }
 }
 @media (max-width: 720px){
-  header ul{
+  /* header ul */
+  .azab{
    position: fixed;
    top:0;
-   left: -100%;
+   /* left: -100%;
    width: 100%;
-   height: 100vh;
+   height: 100vh; */
    background: white;
    display: flex;
    flex-direction: column;
@@ -84,14 +91,17 @@ button{
    z-index: 99;
    transition: 0.5s ease-in;
   }
-  header .menu{
+  /* header */
+   .menu{
     display: block;
     cursor: pointer;
   }
-  header ul li .menu{
-    position: absolute;
-    top:20px;
-    right: 20px;
+
+.azab
+  .menu{
+    /* position: absolute; */
+    /* top:20px;
+    right: 20px; */
   }
   header{
     justify-content: space-between;
