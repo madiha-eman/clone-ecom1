@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import {Link} from 'react-router-dom'
+import '../../../../css/Home.css'
 import {GlobalState} from '../../../../GlobalState'
 
 function BtnRender({product, deleteProduct}) {
@@ -22,12 +23,12 @@ function BtnRender({product, deleteProduct}) {
                     </Link>
                 </>
                 : <>
-                    <Link id="btn_buy" to="#!" onClick={() => addCart(product)}>
+                    <Link   className='addcart-btn' to="#!" onClick={() => addCart(product)}>
                         Buy
                     </Link>
-                    <Link id="btn_view" to={`/detail/${product._id}`}>
+                    {/* <Link id="btn_view" to={`/detail/${product._id}`}>
                         View
-                    </Link>
+                    </Link> */}
                 </>
             }
                 

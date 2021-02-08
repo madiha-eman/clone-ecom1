@@ -17,10 +17,13 @@
     background: #4f4f4f;
     color: #fff;
 }
-.link1{
+.link1, .link2{
     text-decoration: none!important;
     list-style: none;
     color: #4f4f4f!important;
+}
+.link2{
+    color: #fff!important;
 }
 .sign-child, .eng1, .help-child{
     margin-left: 6px;

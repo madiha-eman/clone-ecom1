@@ -1,4 +1,4 @@
-.product_card{
+ /* .product_card{
     max-width: 300px;
     overflow: hidden;
     height: 500px;
@@ -33,7 +33,7 @@
     height: 70px;
     overflow: hidden;
     color: #323232;
-}
+} */
 .row_btn{
     width: 100%;
     margin-top: 10px;
@@ -61,4 +61,4 @@
     position: absolute;
     width: 25px;
     height: 25px;
-}
+} 

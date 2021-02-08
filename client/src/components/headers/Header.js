@@ -315,8 +315,8 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
-            <div>
-              <IconButton
+           
+              {/* <IconButton
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
@@ -324,8 +324,8 @@ function Header() {
                 color="inherit"
               >
                 <AccountCircle />
-              </IconButton>
-              <Menu
+              </IconButton> */}
+              {/* <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -339,13 +339,13 @@ function Header() {
                 }}
                 open={open}
                 onClose={handleClose}
-              >
-                <MenuItem >Profile</MenuItem>
+              > */}
+             <li><Link to="/history">History</Link></li>
                 <MenuItem ><Link to="/" onClick={logoutUser}>Logout</Link></MenuItem>
-              </Menu>
-            </div>
-                <li><Link to="/history">History</Link></li>
+            
+          
                 
+                {/* </Menu> */}
             </>
         )
     }
@@ -409,9 +409,9 @@ function Header() {
          <div className="help">
          <Typography className={classes.title2} variant="h6">
          <IoIcons.IoMdHelpCircle  className={classes.markicon}/>
-         <Link to="/">{isAdmin ? 'Products' : 'Help & More'}</Link>
+         Help & More
 
-         {isAdmin && adminRouter()}
+         
             </Typography>
             </div>
             </Grid>
@@ -427,10 +427,12 @@ function Header() {
             <Divider className={classes.divider} orientation="vertical" />
             <Grid xs={3} md={3} xl={3}>
           <div className="div-signin">
+          {isAdmin && adminRouter()}
+
           {
-                     isLogged ? loggedRouter() :<Link to="/login">Sign in</Link>
+                     isLogged ? loggedRouter() :<Link to="/login">{isAdmin ? 'Admin' : '  Sign in '}</Link>
                 }
-               
+
             </div>
           </Grid>
           {/* </div> */}

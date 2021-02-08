@@ -67,12 +67,12 @@ const loggedRouter = () =>{
   return(
       <>
       <div>
-   
-          <h4 >Profile</h4>
-         <Link to="/" onClick={logoutUser}>Logout</Link>
-        
+      <li>Your Profile</li>
+      <li className='li-1' ><Link to="/history" className='link1'>Payment History</Link></li>
+        <li className='li-1'><Link to="/" onClick={logoutUser} className='link1'>Logout</Link></li> 
+       
       </div>
-          <li><Link to="/history">History</Link></li>
+        
           
       </>
   )
@@ -82,7 +82,8 @@ const loggedRouter = () =>{
     <div style={modalStyle} className={classes.paper}>
         <div className='dropdown'>
           <ul>
-            <li className='first-child'>Chaldal 🥚</li>
+          <li className='first-child'> <Link to="/" className='link2'>{isAdmin ? 'Admin' : 'Chaldal 🥚 '}</Link></li>
+         
           
 
          <div className="div-signin1">
