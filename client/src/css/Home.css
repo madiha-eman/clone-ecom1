@@ -308,6 +308,7 @@ h1 {
     position: relative;
     height:30px;
     width: 100%;
+    color: red;
     background-color:rgb(224,224,224);
     cursor: pointer;
     border-radius: 0px 0px 4px 4px;

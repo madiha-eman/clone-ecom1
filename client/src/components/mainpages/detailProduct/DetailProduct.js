@@ -43,7 +43,7 @@ function DetailProduct() {
             </div>
 
             <div>
-                <h2>Related products</h2>
+                {/* <h2>Related products</h2>
                 <div className="products">
                     {
                         products.map(product => {
@@ -51,7 +51,7 @@ function DetailProduct() {
                                 ? <ProductItem key={product._id} product={product} /> : null
                         })
                     }
-                </div>
+                </div> */}
             </div>
         </>
     )

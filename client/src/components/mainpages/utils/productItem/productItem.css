@@ -54,8 +54,9 @@
     margin-right: 5px;
 }
 #btn_view{
-    background: teal;
     margin-left: 5px;
+    text-decoration: none!important;
+    color: black;
 }
 .product_card input{
     position: absolute;

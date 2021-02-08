@@ -12,6 +12,7 @@ import {plus} from 'react-icons-kit/metrize/plus'
 import {Link} from 'react-router-dom'
 import '../../../../css/Home.css'
 import BtnRender from './BtnRender'
+import DetailsProduct from './DetailsProduct';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -161,8 +162,8 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                     </div> 
                    <div className='btn-hvr0'>
                     <button className='btn-hvr'>
-                    <Link id="btn_view" to={`/detail/${product._id}`}>
-                        View
+                    <Link  to={`/detail/${product._id}`}>
+                     <DetailsProduct/>
                     </Link>
                         {/* <DetailsProduct /> */}
                         </button>
