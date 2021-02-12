@@ -419,7 +419,7 @@ function Header() {
             <Grid xs={2} md={2} lg={2} xl={3}>
           <div className='lang'>
           <Typography className={classes.title3} variant="h6">
-             <span className='eng' onClick={()=>handleClick('en')} > EN </span> | <span onClick={()=>handleClick('ban')}> বাং</span> 
+             <span className='eng' onClick={()=>handleClick('en')} > EN </span> | <span onClick={()=>handleClick('ko')}> বাং</span> 
              
             </Typography>
             </div>
@@ -464,7 +464,7 @@ function Header() {
           {/* <Rightsidebar/>
          <Products/>  */}
          <Rightsidebar/>
-         <h3>{t('Thanks.1')}</h3>  <h3>{t('Why.1')}</h3> 
+         <h3>{t('Thanks')}</h3>  <h3>{t('ttt')}</h3> 
          <MainPages />
          </Typography>
          <Footer2/>
