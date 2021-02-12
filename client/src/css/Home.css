@@ -309,7 +309,7 @@ h1 {
     height:30px;
     width: 100%;
     color: red;
-    background-color:rgb(224,224,224);
+    background-color:rgb(190, 184, 184);
     cursor: pointer;
     border-radius: 0px 0px 4px 4px;
     
@@ -544,6 +544,12 @@ border-top: 1px solid gray;
 }
 .shopping-bag{
     text-align: center;
+    /* color: white; */
+}
+.shopping-bag1{
+    position: relative;
+    text-align: center;
+    color: #c5465f!important;
     /* color: white; */
 }
 .sticky{

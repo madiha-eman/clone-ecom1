@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 // import { CartContext } from '../global/CartContext'
@@ -23,6 +23,8 @@ import TreeItem from '@material-ui/lab/TreeItem';
 // import Modal from '@material-ui/core/Modal';
 // import { StickyContainer, Sticky } from 'react-sticky';
 // import StickyBox from "react-sticky-box";
+import {GlobalState} from '../../GlobalState'
+import axios from 'axios'
 import {circleUp} from 'react-icons-kit/icomoon/circleUp'
 import {circleDown} from 'react-icons-kit/icomoon/circleDown'
 // import AppBar from '@material-ui/core/AppBar';
@@ -146,22 +148,128 @@ export const Cart = ({ user }) => {
     const handleDrawerClose = () => {
         setOpen(false);
     };
+    const state = useContext(GlobalState)
+    const [cart, setCart] = state.userAPI.cart
+    const [token] = state.token
+    const [total, setTotal] = useState(0)
+
+    useEffect(() =>{
+        const getTotal = () =>{
+            const total = cart.reduce((prev, item) => {
+                return prev + (item.price * item.quantity)
+            },0)
+
+            setTotal(total)
+        }
+
+        getTotal()
+
+    },[cart])
+
+    const addToCart = async (cart) =>{
+        await axios.patch('/user/addcart', {cart}, {
+            headers: {Authorization: token}
+        })
+    }
+
+
+    const increment = (id) =>{
+        cart.forEach(item => {
+            if(item._id === id){
+                item.quantity += 1
+            }
+        })
+
+        setCart([...cart])
+        addToCart(cart)
+    }
+
+    const decrement = (id) =>{
+        cart.forEach(item => {
+            if(item._id === id){
+                item.quantity === 1 ? item.quantity = 1 : item.quantity -= 1
+            }
+        })
+
+        setCart([...cart])
+        addToCart(cart)
+    }
+
+    const removeProduct = id =>{
+            cart.forEach((item, index) => {
+                if(item._id === id){
+                    cart.splice(index, 1)
+                }
+            })
+
+            setCart([...cart])
+            addToCart(cart)
+        }
+    
+
+    const tranSuccess = async(payment) => {
+        const {paymentID, address} = payment;
+
+        await axios.post('/api/payment', {cart, paymentID, address}, {
+            headers: {Authorization: token}
+        })
+
+        setCart([])
+        addToCart([])
+        alert("You have successfully placed an order.")
+    }
+
+ 
+     
+
     return (
         <>
             <>  
                 <div style={{ right: 0, }} className={clsx(open && classes.hide)} anchor="right">
                 <img src='' />
             </div>
-                {/* {shoppingCart.length !== 0} */}
+                {cart.length !== 0}
                 <div className='cart-container'>
-                    {/* {
-                        shoppingCart.length === 0 && <> */}
+                 
+                      {cart.length === 0 && <> 
                             <div style={{ marginLeft:'30px', marginTop:'50px',}} className={clsx(open && classes.hide)} anchor="right">
                                 <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1704/Default/components/header/ShoppingCart/images/emptyShoppingBag.png?q=low&webp=1&alpha=1' />
                                 <h2 className='shopping-bag'>Your shopping bag is empty. Start shopping </h2>
                             </div>
-                        
-                    {/* // } */}
+                        </>
+                    }
+                    
+            {
+                cart.map(product => (
+                    <div className="cart-card" key={product._id}>
+                                       <div>
+                                <Icon icon={smallUp} size={22} className='inc' onClick={() => increment(product._id)} />
+
+                                <div className='quantity'>{product.quantity}</div>
+
+                                <Icon icon={smallDown} size={22} className='dec' onClick={() => decrement(product._id)} />
+                            </div>
+                        <div className='cart-img'>
+                        <img src={product.images.url} alt="" />
+                       </div>
+                       <div className='cart-name'>{product.title} <br />
+                                <span className='cart-price-orignal'>৳{product.price}</span>
+                            </div>
+                            <div className='cart-price'>
+                                ৳ {product.price * product.quantity}
+                            </div>
+                            
+                            <button className='delete-btn'  onClick={() => removeProduct(product._id)}>
+                                <Icon icon={iosCloseEmpty} size={24} />
+                            </button>
+                         
+                        </div>
+                    // </div>
+                ))
+            }
+
+            <div>
+        </div>
 {/* 
 
                     /* {shoppingCart && shoppingCart.map(cart => (
@@ -220,12 +328,25 @@ export const Cart = ({ user }) => {
 
                        </TreeItem>
                     </TreeView>
-
+                 
                     </div>
-              
-                {/* {shoppingCart.length > 0 && */}
+                    {/* {cart.length !== 0}
+
+                    {cart.length === 0 && <> 
+                    <div >
+                 <h2 className='shopping-bag1'>Phone : 0188-12345697 </h2>
+             </div>
+                        </>
+                    } */}
+             {cart.length > 0 && 
 
                 <div className='cart-summary' position="fixed">
+                       {/* {cart.length === 0 && <> 
+                    <div >
+                 <h2 className='shopping-bag1'>Phone : 0188-1234567 </h2>
+             </div>
+                        </>
+                    } */}
                           {/* <div style={{ marginLeft:'10px',}} className={clsx(open && classes.hide)} anchor="right">
                  <h2 className='shopping-bag'>Phone : 0188-1234567 </h2>
              </div> */}
@@ -240,7 +361,7 @@ export const Cart = ({ user }) => {
                                     Place Order
                         </Button>
                                 {/* </Link> */}
-                                <Button variant="contained" color="secondary" className='merge-btn2'><span> ৳ </span>
+                                <Button variant="contained" color="secondary" className='merge-btn2'><span> ৳ {total}</span>
                                 </Button>
                             </Grid>
                             {/* <div className='cart-summary-price'>
@@ -250,7 +371,7 @@ export const Cart = ({ user }) => {
                         </div>
                     {/* </StickyBox> */}
                 </div>
-
+}
                 </footer>
             </>
 

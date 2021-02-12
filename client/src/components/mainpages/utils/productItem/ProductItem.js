@@ -13,6 +13,7 @@ import {Link} from 'react-router-dom'
 import '../../../../css/Home.css'
 import BtnRender from './BtnRender'
 import DetailsProduct from './DetailsProduct';
+import Singleproduct from '../../../headers/Singleproduct';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +60,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
     };
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
+    const addCart = state.userAPI.addCart
     const [token] = state.token
     const [total, setTotal] = useState(0)
 
@@ -113,19 +115,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
             {
                 isAdmin && <input type="checkbox" checked={product.checked}
                 onChange={() => handleCheck(product._id)} />
-            }
-            {/* <img src={product.images.url} alt="" />
-
-            <div className="product_box">
-                <h2 title={product.title}>{product.title}</h2>
-                <span>${product.price}</span>
-                <p>{product.description}</p>
-            </div> */}
-
-            
-       
-      
-        
+            }     
                 <div className="product-hvr">
                   <div className='product-img'>
                     <img src={product.images.url} alt="not found"
@@ -134,7 +124,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                       transition={{ duration: 5 }} />
                   </div>
                   <div className='product-name'>
-                  <h2 title={product.title}>{product.title}</h2>
+                  <h2>{product.title}</h2>
                   </div>
                   <div className='product-price'>
                     ৳ <span className='product-price1'>  {product.price}</span>
@@ -143,41 +133,42 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                       <div className={clsx(open && classes.hide)} anchor="right">
                    </div>  
                    </div> 
-                   <div class="middle">
+                   <div class="middle" onClick={() => addCart(product)} >
                     <div className={clsx(open && classes.hide)}>
                     <div className='shopping-bag0'>
-                   <h2 className='shopping-bag' onClick={() => setTitle(<> 
-                 
                     
-                  
-                        <div className='p-bag0'>
-                        <p className='p-bag'> ৳ {product.price * product.quantity}
+                   <h2 className='shopping-bag' onClick={() => setTitle(<> 
+           
+                        <div className='p-bag0' >
+
+             
+                        <p className='p-bag' key={product._id}> ৳ {product.price * product.quantity}
                           <div className='add-hvr'>
                              <Icon icon={minus} size={26} className='dec1' onClick={() => decrement(product._id)} />
                                     <div className='quantity-bag'>{product.quantity}</div>
                              <Icon icon={plus} size={26} className='inc1' onClick={() => increment(product._id)} /> 
                                  </div>
                                   </p> </div><span className='p2-bag'>in bag</span></>)}> <span>{title}</span> </h2>
-                  </div>
+                
+                 </div>
+                
                     </div> 
                    <div className='btn-hvr0'>
                     <button className='btn-hvr'>
                     <Link  to={`/detail/${product._id}`}>
-                     <DetailsProduct/>
+                    <DetailsProduct />
                     </Link>
-                        {/* <DetailsProduct /> */}
                         </button>
                     </div>
                   </div>
                 </div>
                 <BtnRender product={product} deleteProduct={deleteProduct} />
-
                 {/* <button className='addcart-btn' onClick={() => dispatch({ type: 'ADD_TO_CART', id: product.ProductID, product })}><a>ADD TO CART</a></button> */}
               </div>
-          
                        {/* <BtnRender product={product} deleteProduct={deleteProduct} /> */}
 
           </div>
+          
 //   </div>
 //   </div>
     )

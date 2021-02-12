@@ -145,7 +145,7 @@ const useStyles = makeStyles((theme) => ({
   // },
 }));
 
-export default function Rightsidebar() {
+export default function Rightsidebar({product}) {
   const classes = useStyles();
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -180,6 +180,7 @@ export default function Rightsidebar() {
              <span className='no-of-products'> ITEMS</span>
              <h5 className='price-of-products'> ৳ 
              <CountUp
+            //  value={product.price * product.quantity}
               start={0}
               end={99}
               decimals={0} />

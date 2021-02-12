@@ -3,7 +3,7 @@ import {GlobalState} from '../../../GlobalState'
 import ProductItem from '../utils/productItem/ProductItem'
 import Loading from '../utils/loading/Loading'
 import axios from 'axios'
-import Filters from './Filters'
+import Filters from '../../subcom/Filters'
 import LoadMore from './LoadMore'
 
 
@@ -59,7 +59,7 @@ function Products() {
     if(loading) return <div><Loading /></div>
     return (
         <>
-        <Filters />
+        
         
         {
             isAdmin && 

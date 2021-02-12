@@ -57,7 +57,8 @@ const useStyles = makeStyles(theme => ({
                                     
 }));
 
-const DetailsProduct = ({product}) => {
+const DetailsProduct = ({product, isAdmin, deleteProduct, handleCheck}
+    ) => {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
@@ -100,8 +101,9 @@ const DetailsProduct = ({product}) => {
             >
                 <div style={modalStyle} className={classes.paper}>
                ghj,
+
                     
-                <div className="detail">
+                {/* <div className="detail">
                 <img src={detailProduct.images.url} alt="" />
                  <div className="box-detail">
                     <div className="row">
@@ -125,7 +127,7 @@ const DetailsProduct = ({product}) => {
 
           
                    {/* <SingleProduct/> */}
-                </div>
+                </div> 
             </Modal>
         </div>
     );

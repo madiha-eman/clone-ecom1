@@ -23,7 +23,7 @@ import Typography from '@material-ui/core/Typography';
 import egg from './icon/egg1.png'
 import SearchIcon from '@material-ui/icons/Search';
 import Paper from '@material-ui/core/Paper';
-import Filters from '../mainpages/products/Filters'
+import Filters from '../subcom/Filters'
 import Footer2 from '../footer/Footer2'
 import MainPages from '../mainpages/Pages'
 
@@ -258,6 +258,9 @@ function Header() {
   function handleClick(lang) {
     i18next.changeLanguage(lang)
   }
+  // const [sort, setSort] = state.productsAPI.sort
+
+
     const classes = useStyles();
     const state = useContext(GlobalState)
     const [isLogged] = state.userAPI.isLogged
@@ -444,8 +447,8 @@ function Header() {
             
                 <NavIcon position='permanent'  variant="permanent" to='#' onClick={showSidebar}>
                 </NavIcon>
+          <Filters/>
                
-               <Filters/>
               </SidebarWrap>
             </SidebarNav>
           </IconContext.Provider>
