@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {GlobalState} from '../../GlobalState'
 import Menu from './icon/menu.svg'
 import Close from './icon/close.svg'
@@ -26,7 +26,12 @@ import Paper from '@material-ui/core/Paper';
 import Filters from '../subcom/Filters'
 import Footer2 from '../footer/Footer2'
 import MainPages from '../mainpages/Pages'
-
+import {
+  Modal,
+  MaterialInput,
+  MaterialButton,
+  DropdownMenu,
+} from "../MaterialUI";
 import MenuIcon from '@material-ui/icons/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Switch from '@material-ui/core/Switch';
@@ -252,13 +257,14 @@ const useStyles = makeStyles((theme) => ({
 }
 }));
 
-function Header() {
+function Header({user,name}) {
   const { t } = useTranslation();
 
   function handleClick(lang) {
     i18next.changeLanguage(lang)
   }
   // const [sort, setSort] = state.productsAPI.sort
+
 
 
     const classes = useStyles();
@@ -274,7 +280,8 @@ function Header() {
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
-  
+
+ 
     const handleChange = (event) => {
       setAuth(event.target.checked);
     };
@@ -309,6 +316,17 @@ function Header() {
     const adminRouter = () =>{
         return(
             <>
+                       <DropdownMenu
+        menus={[
+  
+          { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
+
+       
+             
+            
+      
+        ]}
+      />
                 <li><Link to="/create_product">Create Product</Link></li>
                 <li><Link to="/category">Categories</Link></li>
             </>
@@ -318,37 +336,26 @@ function Header() {
     const loggedRouter = () =>{
         return(
             <>
-           
-              {/* <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton> */}
-              {/* <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              > */}
-             <li><Link to="/history">History</Link></li>
-                <MenuItem ><Link to="/" onClick={logoutUser}>Logout</Link></MenuItem>
+               <DropdownMenu
+        menu={<a className="fullName">user name</a>}
+        menus={[
+          { label: "My Profile", href: "", icon: null },
+        
+          {
+            label: "History",
+            href: `/history`,
+            icon: null,
+          },
+         
+          { label: "Logout", href: "", icon: null, onClick:logoutUser },
+          // { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
+
+       
+             
             
-          
-                
-                {/* </Menu> */}
+      
+        ]}
+      />
             </>
         )
     }

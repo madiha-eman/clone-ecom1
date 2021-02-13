@@ -14,16 +14,41 @@ function Filters() {
         setCategory(e.target.value)
         setSearch('')
     }
+    const renderCategories = () => {
+        let myCategories = [];
+        for (let category of categories) {
+          myCategories.push(
+            <li key={category.name}>
+              {
+                category.parentId ? <a
+                  href={`/cid=${category._id}&type=${category.type}`}>
+                  {category.name}
+                </a> :
+                <span>{category.name}</span>
+              }
+              {category.children.length > 0 ? (<ul>{renderCategories(category.children)}</ul>) : null}
+            </li>
+          );
+        }
+        return myCategories;
+      }
 
     return (
         <div className="filter_menu">
             <div className="row">
+            {category.categories > 0 ? renderCategories(category.categories) : null}
+
                 <div name="category" value={category} onChange={handleCategory} >
-                    <option value=''>All Products</option>
+                   
                     {
                         categories.map(category => (
-                            <h5 value={"category=" + category._id} key={category._id}>
-                                {category.name}
+                            <h5 className='cat' value={"category=" + category._id} key={category._id}>
+              <a
+              href={`/${category}?id=${category._id}&type=${category.name}`} onChange={handleCategory}>
+              {category.name}
+            </a> 
+          
+                              
                             </h5>
                         ))
                     }
