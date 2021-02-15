@@ -1,5 +1,8 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import './style.css'
+import {GlobalState} from '../../../GlobalState'
+import {Link} from 'react-router-dom'
+import axios from 'axios'
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography'
 // import { Divider } from '@material-ui/core'
@@ -11,7 +14,12 @@ import EmailIcon from '@material-ui/icons/Email';
 import {iosPlusEmpty} from 'react-icons-kit/ionicons/iosPlusEmpty'
 import {socialFacebookOutline} from 'react-icons-kit/ionicons/socialFacebookOutline'
 import { Icon } from 'react-icons-kit'
-
+import {
+  Modal,
+  MaterialInput,
+  MaterialButton,
+  DropdownMenu,
+} from "../../MaterialUI";
 // import TextField from '@material-ui/core/TextField';
 
 // const CssTextField = withStyles({
@@ -85,6 +93,58 @@ const useStyles = makeStyles((theme) => ({
 
 const Signin = () => {
   const classes = useStyles();
+  const state = useContext(GlobalState)
+  const [isLogged] = state.userAPI.isLogged
+  const [isAdmin] = state.userAPI.isAdmin
+  const [title, setTitle] = useState();
+
+  const logoutUser = async () =>{
+    await axios.get('/user/logout')
+    
+    localStorage.removeItem('firstLogin')
+    
+    window.location.href = "/";
+}
+
+const adminRouter = () =>{
+    return(
+        <>
+                   <DropdownMenu
+    menus={[
+
+      { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
+    ]}
+  />
+            <li><Link to="/create_product">Create Product</Link></li>
+            <li><Link to="/category">Categories</Link></li>
+        </>
+    )
+}
+
+const loggedRouter = () =>{
+    return(
+        <>
+           <DropdownMenu
+    menu={<a className="fullName">user name</a>}
+    menus={[
+      { label: "My Profile", href: "", icon: null },
+    
+      {
+        label: "History",
+        href: `/history`,
+        icon: null,
+      },
+     
+      { label: "Logout", href: "", icon: null, onClick:logoutUser },
+      // { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
+
+  
+  
+    ]}
+  />
+        </>
+    )
+}
   return (
     <div>
       
@@ -102,7 +162,11 @@ const Signin = () => {
        size="large"
        className={classes.button1}
        startIcon={<EmailIcon style={{color:'orange',}} />}>
-           <span className={classes.email1}>Login with </span> <span className={classes.email2}>Email</span>
+           <span className={classes.email1}>Login with </span> <span className={classes.email2}>
+           {
+                     isLogged ? loggedRouter() :<Link to="/login">{isAdmin ? 'Admin' :'Email' }</Link>
+                }
+             Email</span>
       </Button>
    <Typography className='h1'>
      or

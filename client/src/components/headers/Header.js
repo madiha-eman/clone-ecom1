@@ -46,6 +46,7 @@ import {menu} from 'react-icons-kit/iconic/menu'
 import i18next from 'i18next';
 import Rightsidebar from '../RightCartbar/Rightsidebar'
 import BottomAppBar from './bottomheader/BottomAppBar'
+import SigninModal from '../mainpages/auth/SigninModal'
 
 const Nav = styled.div`
   background: #ffc40c;
@@ -319,12 +320,7 @@ function Header({user,name}) {
                        <DropdownMenu
         menus={[
   
-          { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
-
-       
-             
-            
-      
+          { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },  
         ]}
       />
                 <li><Link to="/create_product">Create Product</Link></li>
@@ -438,10 +434,10 @@ function Header({user,name}) {
             <Grid xs={3} md={3} xl={3}>
           <div className="div-signin">
           {isAdmin && adminRouter()}
-
-          {
-                     isLogged ? loggedRouter() :<Link to="/login">{isAdmin ? 'Admin' : '  Sign in '}</Link>
-                }
+          <SigninModal/>
+          {/* {
+                     isLogged ? loggedRouter() :<Link to="/login">{isAdmin ? 'Admin' : <SigninModal/> }</Link>
+                } */}
 
             </div>
           </Grid>
