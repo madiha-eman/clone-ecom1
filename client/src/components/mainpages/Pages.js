@@ -12,6 +12,7 @@ import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
 import {GlobalState} from '../../GlobalState'
 import DetailsProduct from './utils/productItem/DetailsProduct'
+import SingleCategory from '../subcom/SingleCategory'
 
 
 function Pages() {
@@ -32,6 +33,7 @@ function Pages() {
             <Route path="/history/:id" exact component={isLogged ? OrderDetails : NotFound} />
 
             <Route path="/cart" exact component={Cart} />
+            <Route path="/category/:id" exact component={SingleCategory} />
 
 
             <Route path="*" exact component={NotFound} />

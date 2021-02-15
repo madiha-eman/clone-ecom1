@@ -10,6 +10,15 @@ const categoryCtrl = {
             return res.status(500).json({msg: err.message})
         }
     },
+    getSingleCat: async(req, res) =>{
+        try {
+            const singleCat = await Products.find({category: req.params.id})
+            console.log(singleCat)
+            res.json(singleCat)
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
     createCategory: async (req, res) =>{
         try {
             // if user have role = 1 ---> admin

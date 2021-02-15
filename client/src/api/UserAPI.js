@@ -46,9 +46,10 @@ function UserAPI(token) {
                 headers: {Authorization: token}
             })
 
-        }else{
-            alert("This product has been added to cart.")
         }
+        // else{
+        //     alert("This product has been added to cart.")
+        // }
     }
 
     return {
