@@ -39,7 +39,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
-import SimpleModal from './modal/modal'
+import SimpleModal from './modal/Modal'
 import { useTranslation } from 'react-i18next';
 import {menu} from 'react-icons-kit/iconic/menu'
 // import {menu} from 'react-icons-kit/entypo/menu'
@@ -470,7 +470,7 @@ function Header({user,name}) {
           {/* <Rightsidebar/>
          <Products/>  */}
          <Rightsidebar/>
-         <h3>{t('Thanks')}</h3>  <h3>{t('ttt')}</h3> 
+         {/* <h3>{t('Thanks')}</h3>  <h3>{t('ttt')}</h3>  */}
          <MainPages />
          </Typography>
          <Footer2/>

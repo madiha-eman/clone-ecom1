@@ -31,6 +31,7 @@ function getModalStyle() {
 
 const useStyles = makeStyles((theme) => ({
   paper: {
+    background:'red',
     position: 'absolute',
     width: 230,
     backgroundColor: theme.palette.background.paper,
@@ -40,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal() {
+export default function SimpleModal1() {
   const classes = useStyles();
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged

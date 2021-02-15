@@ -5,6 +5,7 @@ import Loading from '../utils/loading/Loading'
 import axios from 'axios'
 import Filters from '../../subcom/Filters'
 import LoadMore from './LoadMore'
+import '../../../css/Home.css'
 
 
 function Products() {
@@ -73,7 +74,7 @@ function Products() {
         <div className="products">
             {
                 products.map(product => {
-                    return <ProductItem key={product._id} product={product}
+                    return  <ProductItem key={product._id} product={product}
                     isAdmin={isAdmin} deleteProduct={deleteProduct} handleCheck={handleCheck} />
                 })
             } 

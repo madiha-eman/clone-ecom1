@@ -36,18 +36,16 @@
 } */
 .row_btn{
     width: 100%;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     display: flex;
     justify-content: space-between;
 }
 .row_btn a{
     width: 50%;
     text-align: center;
-    text-transform: uppercase;
     color: white;
     font-weight: 600;
-    letter-spacing: 2px;
-    padding: 6px;
+    /* padding: 6px; */
 }
 #btn_buy{
     background: #555;
@@ -58,8 +56,8 @@
     text-decoration: none!important;
     color: black;
 }
-.product_card input{
+/* .product_card input{
     position: absolute;
     width: 25px;
     height: 25px;
-} 
+}  */

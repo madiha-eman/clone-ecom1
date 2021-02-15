@@ -24,7 +24,7 @@ function BtnRender({product, deleteProduct}) {
                 </>
                 : <>
                     <Link   className='addcart-btn' to="#!" onClick={() => addCart(product)}>
-                        Buy
+                        Add to Cart
                     </Link>
                     {/* <Link id="btn_view" to={`/detail/${product._id}`}>
                         View

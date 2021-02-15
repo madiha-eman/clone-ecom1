@@ -109,11 +109,11 @@ function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
                     </div>
                   </div>
                 </div>
-                <BtnRender product={product} deleteProduct={deleteProduct}/>
-                 </div>
+                </div> 
+                </div>
+                <BtnRender className='addcart-btn' product={product} deleteProduct={deleteProduct}/>
                  </div>
 
-                    </div> 
             )
 
             )}

@@ -43,7 +43,7 @@ function Filters() {
                    
                     {
                         categories.map(category => (
-                            <h5 className='cat' value={"category=" + category._id} key={category._id}>
+                            <div className='cat' value={"category=" + category._id} key={category._id}>
               {/* <a
               href={`/${category.name}?id=${category._id}&type=${category.name}`}> */}
               <a
@@ -52,7 +52,7 @@ function Filters() {
             </a> 
           
                               
-                            </h5>
+                            </div>
                         ))
                     }
                 </div>
