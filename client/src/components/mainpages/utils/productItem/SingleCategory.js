@@ -6,10 +6,10 @@ import { useParams } from "react-router-dom";
 import {minus} from 'react-icons-kit/metrize/minus'
 import {plus} from 'react-icons-kit/metrize/plus'
 import {Link} from 'react-router-dom'
-import BtnRender from '../mainpages/utils/productItem/BtnRender'
+import BtnRender from './BtnRender'
 import { makeStyles } from '@material-ui/core/styles';
 import { Icon } from 'react-icons-kit'
-import '../../css/Home.css'
+import '../../../../css/Home.css'
 
 const useStyles = makeStyles((theme) => ({
     drawerHeader: {
@@ -63,9 +63,10 @@ function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
 
     return (
         <div>
-           <div className='products-container'>
+  
             {catProducts.map( (prod) => (
-              <div className='product-card'>
+                 <div className='products-container'>
+                <div className='product-card'>
                 <div className="product-hvr">
                     <div className='product-img'>
                     <img src={prod.images.url} alt="not found"
@@ -81,7 +82,7 @@ function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
                   </div>
             
                   <div className='bag'>
-                      <div  anchor="right">
+                      <div anchor="right">
                    </div>  
                    </div> 
                    <div class="middle" >
@@ -111,14 +112,13 @@ function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
                 </div>
                 <BtnRender product={product} deleteProduct={deleteProduct}/>
                  </div>
-                 </div>
-
+                
                     </div> 
+                    </div>
+             </div>
             )
 
             )}
-                         </div>
-
 </div>
     )
 }
