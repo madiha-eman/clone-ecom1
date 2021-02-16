@@ -1,8 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
+import {GlobalState} from '../../GlobalState'
 import styled from 'styled-components';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
@@ -147,6 +148,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Rightsidebar({product}) {
   const classes = useStyles();
+  const state = useContext(GlobalState)
+  const [cart] = state.userAPI.cart
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -177,7 +180,7 @@ export default function Rightsidebar({product}) {
             className={classes.hid}
             variant="permanent"
           >
-             <span className='no-of-products'> ITEMS</span>
+             <span className='no-of-products'>{cart.length} ITEMS</span>
              <h5 className='price-of-products'> ৳ 
              <CountUp
             //  value={product.price * product.quantity}

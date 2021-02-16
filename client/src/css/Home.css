@@ -230,7 +230,49 @@ h1 {
     line-height: 19px;
     padding-left: 7px;
     cursor: pointer;
-  
+}
+.addcart-btn .display-btn{
+    width: 100%;
+    display: flex;  
+    background: #ff8182;
+    color: #fff;
+    -webkit-box-shadow: 1px 1px 1px rgb(204 204 204 / 50%);
+    -moz-box-shadow: 1px 1px 1px rgba(204,204,204,.5);
+    box-shadow: 1px 1px 1px rgb(204 204 204 / 50%);
+}
+.inc-1{
+    float: right;
+    border-left: 1px solid #ca0707;
+    border: none;
+    width: 120px;
+    background: #ff8182;
+    /* height: 37px; */
+    outline: 0;
+    font-weight: 700;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 0 3px 3px 0;
+}
+.dec-1 {
+    float: left;
+    border-right: 1px solid #d55f5f;
+    border-radius: 3px 0 0 3px;
+    border: none;
+    width: 120px;
+    background: #ff8182;
+    /* height: 37px; */
+    outline: 0;
+    font-weight: 700;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 0 3px 3px 0; 
+}
+.add-bag{
+    /* line-height: 20px; */
+    width: 500px!important;
+    font-size: 13px;
+    color: #e4e0e1;
+  background-color: #ee496a;
 }
 .dec1:hover{
     color: #fdd670 !important;

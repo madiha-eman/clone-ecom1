@@ -270,49 +270,6 @@ export const Cart = ({ user }) => {
 
             <div>
         </div>
-{/* 
-
-                    /* {shoppingCart && shoppingCart.map(cart => (
-                        <div className='cart-card' key={cart.ProductID}>
-
-                            <div>
-                                <Icon icon={smallUp} size={22} className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })} />
-
-                                <div className='quantity'>{cart.qty}</div>
-
-                                <Icon icon={smallDown} size={22} className='dec' onClick={() => dispatch({ type: 'DEC', id: cart.ProductID, cart })} />
-                            </div>
-                            <div className='cart-img'>
-                                <img src={cart.ProductImg} alt="not found" />
-                            </div>
-
-                            <div className='cart-name'>{cart.ProductName} <br />
-                                <span className='cart-price-orignal'>৳{cart.ProductPrice}</span>
-                            </div> */}
-
-                            {/* <div className='cart-price-orignal'> ৳ {cart.ProductPrice}</div> */}
-
-                            {/* <div className='inc' onClick={() => dispatch({ type: 'INC', id: cart.ProductID, cart })}>
-                                <Icon icon={ic_add} size={24} />
-                            </div>
-
-                            <div className='quantity'>{cart.qty}</div>
-
-                            <div className='dec' onClick={() => dispatch({ type: 'DEC', id: cart.ProductID, cart })}>
-                                <Icon icon={ic_remove} size={24} />
-                            </div> */}
-
-                            {/* <div className='cart-price'>
-                                ৳ {cart.TotalProductPrice}
-                            </div>
-
-                            <button className='delete-btn' onClick={() => dispatch({ type: 'DELETE', id: cart.ProductID, cart })}>
-                                <Icon icon={iosCloseEmpty} size={24} />
-                            </button>
-                            <Divider />
-                        </div>
-                    ))
-                    }  */}
 
                 </div>
                   <footer className='foter'>

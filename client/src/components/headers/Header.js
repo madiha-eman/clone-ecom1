@@ -46,7 +46,7 @@ import i18next from 'i18next';
 import Rightsidebar from '../RightCartbar/Rightsidebar'
 import BottomAppBar from './bottomheader/BottomAppBar'
 import SigninModal from '../mainpages/auth/SigninModal'
-import MobileModal from './modal/Modal'
+import MobileModal from './modal/MobileModal'
 
 const Nav = styled.div`
   background: #ffc40c;
@@ -84,12 +84,10 @@ const SidebarNav = styled.nav`
   padding: 0 19px;
   position: ${({ sidebar }) => (sidebar ? 'fixed' :  '-100%')};  
   @media (max-width: 760px) {
-    background:black;
     left: ${({ sidebar }) => (sidebar ? '-80%' :  '-1%')};
 
   }
   @media (max-width: 554px) {
-    background:black;
     left: ${({ sidebar }) => (sidebar ? '-90%' :  '-1%')};
 
   }
@@ -344,11 +342,7 @@ function Header({user,name}) {
           },
          
           { label: "Logout", href: "", icon: null, onClick:logoutUser },
-          // { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },
-
-       
-             
-            
+          // { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },  
       
         ]}
       />
