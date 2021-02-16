@@ -127,7 +127,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                   <h2>{product.title}</h2>
                   </div>
                   <div className='product-price'>
-                    ৳ <span className='product-price1'>  {product.price}</span>
+                    ৳ <span className='product-price1'> {product.price}</span>
                   </div>
                   <div className='bag'>
                       <div className={clsx(open && classes.hide)} anchor="right">
@@ -156,7 +156,7 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                    <div className='btn-hvr0'>
                     <button className='btn-hvr'>
                     <Link  to={`/detail/${product._id}`}>
-                    <DetailsProduct />
+                    
                     </Link>
                         </button>
                     </div>

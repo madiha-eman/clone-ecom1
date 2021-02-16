@@ -39,7 +39,6 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormGroup from '@material-ui/core/FormGroup';
 import MenuItem from '@material-ui/core/MenuItem';
 import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
-import SimpleModal from './modal/Modal'
 import { useTranslation } from 'react-i18next';
 import {menu} from 'react-icons-kit/iconic/menu'
 // import {menu} from 'react-icons-kit/entypo/menu'
@@ -47,6 +46,7 @@ import i18next from 'i18next';
 import Rightsidebar from '../RightCartbar/Rightsidebar'
 import BottomAppBar from './bottomheader/BottomAppBar'
 import SigninModal from '../mainpages/auth/SigninModal'
+import MobileModal from './modal/Modal'
 
 const Nav = styled.div`
   background: #ffc40c;
@@ -407,8 +407,7 @@ function Header({user,name}) {
          <div className="menu"
           // onClick={() => setMenu(!menu)}
           >
-                <SimpleModal/>
-
+                <MobileModal/>
             </div>
          {/* <div className='azab' style={styleMenu}> */}
          <Grid xs={3}  md={3} xl={3} lg={3}>

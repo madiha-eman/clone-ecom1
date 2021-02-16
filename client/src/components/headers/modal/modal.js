@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimpleModal1() {
+export default function MobileModal() {
   const classes = useStyles();
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged
