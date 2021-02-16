@@ -24,7 +24,8 @@ function Pages() {
     return (
         <Switch>
             <Route path="/" exact component={Products} />
-            <Route path="/detail/:id" exact component={DetailsProduct}/>
+            {/* // temp remove this route for detailsPrdouct modal 
+            <Route path="/detail/:id" exact component={DetailsProduct}/> */}
             <Route path="/login" exact component={isLogged ? NotFound : Login} />
             <Route path="/register" exact component={isLogged ? NotFound : Register} />
             <Route path="/category" exact component={isAdmin ? Categories :  NotFound} />

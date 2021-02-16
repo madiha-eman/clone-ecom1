@@ -57,80 +57,101 @@ const useStyles = makeStyles(theme => ({
                                     
 }));
 
-const DetailsProduct = ({product, isAdmin, deleteProduct, handleCheck}
-    ) => {
+const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) => {
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-  const params = useParams()
-    const state = useContext(GlobalState)
-    const [products] = state.productsAPI.products
-    const addCart = state.userAPI.addCart
-    const [detailProduct, setDetailProduct] = useState([])
+    const params = useParams();
+    const state = useContext(GlobalState);
+    const [products] = state.productsAPI.products;
+    const addCart = state.userAPI.addCart;
+    const [detailProduct, setDetailProduct] = useState([]);
+  
+  //   const [detailImg, setDetailImg] = useState('');
+    const [detailImgUrl, setDetailImgUrl] = useState('');
+  
     const handleOpen = () => {
-        setOpen(true);
-    };
-
-    const handleClose = () => {
-        setOpen(false);
+      setOpen(true);
     };
   
-
-    useEffect(() =>{
-        if(params.id){
-
-            products.forEach(product => {
-                if(product._id === params.id) setDetailProduct(product)
-            })
-        }
-    },[params.id, products])
-
-    if(detailProduct.length === 0) return null;
-
+    const handleClose = () => {
+      setOpen(false);
+    };
+  
+  
+  //   useEffect(() => {
+  //     if (params.id) {
+  //       products.forEach((product) => {
+  //         if (product._id === params.id) setDetailProduct(product);
+  //       });
+  //     }
+  //   }, [params.id, products]);
+  
+  useEffect(() => {
+      if (id) {
+        products.forEach((product) => {
+          if (product._id === id) {
+              setDetailProduct(product);
+              // setDetailImg(product.images)
+              setDetailImgUrl(product.images.url)
+          }
+        });
+      }
+    }, [id, products]);
+  
+  //   console.log('>>>>>>>>', detailProduct['images']);
+  //   console.log('>>>>>>>>', detailProduct.images);
+  // console.log('>>>>>>>>', detailImg.url);
+  
+  
+    // if(detailProduct.length === 0) return null;
+  
     return (
-        <div>
-            <button className='btn-hvr' onClick={handleOpen}>
-              Details >
-            </button>
-
-            <Modal
-                aria-labelledby="simple-modal-title"
-                aria-describedby="simple-modal-description"
-                open={open}
-                onClose={handleClose}
-            >
-                <div style={modalStyle} className={classes.paper}>
-               ghj,
-
-                    
-                {/* <div className="detail">
-                <img src={detailProduct.images.url} alt="" />
-                 <div className="box-detail">
-                    <div className="row">
-                        <h2>{detailProduct.title}</h2>
-                        <h6>#id: {detailProduct.product_id}</h6>
-                    </div>
-                    <span>$ {detailProduct.price}</span>
-                    <p>{detailProduct.description}</p>
-                    <p>{detailProduct.content}</p>
-                    <p>Sold: {detailProduct.sold}</p>
-                    <Link to="/cart" className="cart"
-                    onClick={() => addCart(detailProduct)}>
-                        Buy Now
-                    </Link>
+      <div>
+        <button className="btn-hvr" onClick={handleOpen}>
+          Details >
+        </button>
+  
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={open}
+          onClose={handleClose}
+        >
+  
+          <div style={modalStyle} className={classes.paper}>
+            
+  
+            <div className="detail">
+              <img src={detailImgUrl} alt="" />
+              <div className="box-detail">
+                <div className="row">
+                  <h2>{detailProduct.title}</h2>
+                  <h6>#id: {detailProduct.product_id}</h6>
                 </div>
+                <span>$ {detailProduct.price}</span>
+                <p>{detailProduct.description}</p>
+                <p>{detailProduct.content}</p>
+                <p>Sold: {detailProduct.sold}</p>
+                <Link
+                  to="/cart"
+                  className="cart"
+                  onClick={() => addCart(detailProduct)}
+                >
+                  Buy Now
+                </Link>
+              </div>
             </div>
-
-            <div> 
-                
-             </div>
-
-          
-                   {/* <SingleProduct/> */}
-                </div> 
-            </Modal>
-        </div>
+  
+            <div></div>
+  
+  
+          </div>
+        </Modal>
+  
+ 
+      </div>
     );
-}
+  };
 
 export default DetailsProduct

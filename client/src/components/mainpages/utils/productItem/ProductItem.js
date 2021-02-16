@@ -155,9 +155,10 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                     </div> 
                    <div className='btn-hvr0'>
                     <button className='btn-hvr'>
-                    <Link  to={`/detail/${product._id}`}>
-                    
-                    </Link>
+                    {/* <Link  to={`/detail/${product._id}`}> */}
+                      <DetailsProduct product={product} id={product._id} isAdmin={isAdmin} 
+                        deleteProduct={deleteProduct} handleCheck={handleCheck} />
+                    {/* </Link> */}
                         </button>
                     </div>
                   </div>
