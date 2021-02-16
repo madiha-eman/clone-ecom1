@@ -71,16 +71,16 @@ function BtnRender({product, deleteProduct}) {
                 : <>
                     <Link   className='addcart-btn' to="#!" onClick={() => addCart(product)}>
                     <div  onClick={()=>setBtn(
-                        <div className='display-btn'>
-               <div className='dec-1' onClick={() => decrement(product._id)} > - </div>
-               <div className='add-bag'>in bag</div>
-               <div  className='inc-1' onClick={() => increment(product._id)} >+</div>
-               </div>
+                      <> 
+              <button className='dec-1' onClick={() => decrement(product._id)}> - </button>
+              <div><span>{product.quantity} </span>in bag</div>
+               <button  className='inc-1' onClick={() => increment(product._id)} >+</button>
+            </>
                )}> 
                                      {btn}
 
-                          </div>
-
+                        
+</div>
 
                     </Link>
                     {/* <Link id="btn_view" to={`/detail/${product._id}`}>

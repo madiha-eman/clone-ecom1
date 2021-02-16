@@ -134,7 +134,7 @@ const useStyles = makeStyles((theme) => ({
     //   marginrRight: 0,
     // },
 }));
-export const Cart = ({ user }) => {
+export const Cart = ({}) => {
 
     // const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(CartContext);
     const [open, setOpen] = useState(false);

@@ -9,6 +9,7 @@ function Categories() {
     const [token] = state.token
     const [callback, setCallback] = state.categoriesAPI.callback
     const [onEdit, setOnEdit] = useState(false)
+    const [subCat, setSubCat] = useState('')
     const [id, setID] = useState('')
 
     const createCategory = async e =>{
@@ -19,13 +20,22 @@ function Categories() {
                     headers: {Authorization: token}
                 })
                 alert(res.data.msg)
-            }else{
+               
+            }
+            else if(subCat){
+                const res =  await axios.create(`/api/category/${id}`, {name: subCat},{
+                    headers: {Authorization: token}  
+                })
+                alert(res.data.msg)
+            }
+            else{
                 const res = await axios.post('/api/category', {name: category}, {
                     headers: {Authorization: token}
                 })
                 alert(res.data.msg)
             }
             setOnEdit(false)
+            setSubCat('')
             setCategory('')
             setCallback(!callback)
             
@@ -38,6 +48,11 @@ function Categories() {
         setID(id)
         setCategory(name)
         setOnEdit(true)
+    }
+    const subCategory = async (id, name) =>{
+        setID(id)
+        setCategory(name)
+        setSubCat(true)
     }
 
     const deleteCategory = async id =>{
@@ -60,6 +75,15 @@ function Categories() {
                 onChange={e => setCategory(e.target.value)} />
 
                 <button type="submit">{onEdit? "Update" : "Create"}</button>
+
+            </form>
+            <form onSubmit={createCategory}>
+                <label htmlFor="category">Category</label>
+                <input type="text" name="category" value={subCat} required
+                onChange={e => setSubCat(e.target.value)} />
+
+                <button type="submit">{subCat? "Update" : "subcat"}</button>
+
             </form>
 
             <div className="col">
@@ -68,14 +92,24 @@ function Categories() {
                         <div className="row" key={category._id}>
                             <p>{category.name}</p>
                             <div>
+                                <button onClick={() => subCategory(category._id, category.name)}>subcat</button>
                                 <button onClick={() => editCategory(category._id, category.name)}>Edit</button>
                                 <button onClick={() => deleteCategory(category._id)}>Delete</button>
                             </div>
                         </div>
                     ))
                 }
+             
             </div>
+  <>
+  {categories.map(subCat =>(
+   <>
+    <p>{subCat.name}</p>
+   </>
+))}
+  </>
         </div>
+                
     )
 }
 

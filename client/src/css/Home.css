@@ -231,7 +231,7 @@ h1 {
     padding-left: 7px;
     cursor: pointer;
 }
-.addcart-btn .display-btn{
+ .display-btn{
     width: 100%;
     display: flex;  
     background: #ff8182;
@@ -244,7 +244,7 @@ h1 {
     float: right;
     border-left: 1px solid #ca0707;
     border: none;
-    width: 120px;
+    /* width: 120px; */
     background: #ff8182;
     /* height: 37px; */
     outline: 0;
@@ -252,13 +252,14 @@ h1 {
     color: #fff;
     font-size: 18px;
     border-radius: 0 3px 3px 0;
+    margin-left: 10px;
 }
 .dec-1 {
     float: left;
     border-right: 1px solid #d55f5f;
     border-radius: 3px 0 0 3px;
     border: none;
-    width: 120px;
+    /* width: 120px; */
     background: #ff8182;
     /* height: 37px; */
     outline: 0;
@@ -348,7 +349,7 @@ h1 {
     position: relative;
     height:30px;
     width: 100%;
-    color: red;
+    color: black;
     background-color:rgb(190, 184, 184);
     cursor: pointer;
     border-radius: 0px 0px 4px 4px;

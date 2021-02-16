@@ -20,13 +20,13 @@ function App() {
       <Router>
         <div className="App">
           <Header />
-          <button onClick={()=>handleClick('en')}>
+          {/* <button onClick={()=>handleClick('en')}>
             english
           </button>
           <button  onClick={()=>handleClick('ko')}>
           korean
-          </button>
-          <h2>{t('thanks')}</h2>
+          </button> */}
+          {/* <h2>{t('thanks')}</h2> */}
         </div>
       </Router>
     </DataProvider>
