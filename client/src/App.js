@@ -5,8 +5,8 @@ import Header from './components/headers/Header'
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 // import MainPages from './components/mainpages/Pages'
-import DetailsProduct from './components/mainpages/utils/productItem/DetailsProduct';
-import Singleproduct from './components/headers/Singleproduct';
+// import DetailsProduct from './components/mainpages/utils/productItem/DetailsProduct';
+// import Singleproduct from './components/headers/Singleproduct';
 
 
 function App() {

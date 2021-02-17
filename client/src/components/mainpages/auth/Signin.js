@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FbIcon from '@material-ui/icons/Facebook';
 import EmailIcon from '@material-ui/icons/Email';
 import {iosPlusEmpty} from 'react-icons-kit/ionicons/iosPlusEmpty'
-import {socialFacebookOutline} from 'react-icons-kit/ionicons/socialFacebookOutline'
+// import {socialFacebookOutline} from 'react-icons-kit/ionicons/socialFacebookOutline'
 import { Icon } from 'react-icons-kit'
 import {
   Modal,

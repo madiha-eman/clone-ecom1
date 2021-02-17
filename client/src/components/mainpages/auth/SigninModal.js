@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import { Typography } from "@material-ui/core";
 import  Signin from "./Signin";
-import { FaBorderNone } from "react-icons/fa";
+// import { FaBorderNone } from "react-icons/fa";
 
 
 // function rand() {

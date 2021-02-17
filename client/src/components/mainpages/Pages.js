@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Products from './products/Products'
-import DetailProduct from './detailProduct/DetailProduct'
+// import DetailProduct from './detailProduct/DetailProduct'
 import Login from './auth/Login'
 import Register from './auth/Register'
 import OrderHistory from './history/OrderHistory'
@@ -11,7 +11,7 @@ import NotFound from './utils/not_found/NotFound'
 import Categories from './categories/Categories'
 import CreateProduct from './createProduct/CreateProduct'
 import {GlobalState} from '../../GlobalState'
-import DetailsProduct from './utils/productItem/DetailsProduct'
+// import DetailsProduct from './utils/productItem/DetailsProduct'
 import SingleCategory from '../subcom/SingleCategory'
 
 

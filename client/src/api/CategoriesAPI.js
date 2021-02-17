@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import axios from 'axios'
-import { useParams, useLocation } from "react-router-dom";
+// import { useParams, useLocation } from "react-router-dom";
 
 function CategoriesAPI() {
     const [categories, setCategories] = useState([])

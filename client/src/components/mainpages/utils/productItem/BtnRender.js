@@ -5,7 +5,7 @@ import '../../../../css/Home.css'
 import {GlobalState} from '../../../../GlobalState'
 
 function BtnRender({product, deleteProduct}) {
-    const [btn, setBtn] = useState('Add to Cart');
+    // const [btn, setBtn] = useState('Add to Cart');
     const state = useContext(GlobalState)
     const [isAdmin] = state.userAPI.isAdmin
     const [cart, setCart] = state.userAPI.cart
@@ -70,7 +70,7 @@ function BtnRender({product, deleteProduct}) {
                 </>
                 : <>
                     <Link   className='addcart-btn' to="#!" onClick={() => addCart(product)}>
-                    <div  onClick={()=>setBtn(
+                    {/* <div  onClick={()=>setBtn(
                       <> 
               <button className='dec-1' onClick={() => decrement(product._id)}> - </button>
               <div><span>{product.quantity} </span>in bag</div>
@@ -78,9 +78,8 @@ function BtnRender({product, deleteProduct}) {
             </>
                )}> 
                                      {btn}
-
-                        
-</div>
+</div> */}
+                    Add to Cart
 
                     </Link>
                     {/* <Link id="btn_view" to={`/detail/${product._id}`}>

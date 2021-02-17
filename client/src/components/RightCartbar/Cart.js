@@ -1,34 +1,36 @@
 import React, {useContext, useState, useEffect} from 'react'
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-// import { CartContext } from '../global/CartContext'
+import Button from '@material-ui/core/Button';
+import TreeView from '@material-ui/lab/TreeView';
 import { Icon } from 'react-icons-kit'
-import { ic_add } from 'react-icons-kit/md/ic_add'
-import { ic_remove } from 'react-icons-kit/md/ic_remove'
-import { iosClearhOutline } from 'react-icons-kit/ionicons/iosTrashOutline'
-import { cross } from 'react-icons-kit/entypo/cross'
 import { smallDown } from 'react-icons-kit/entypo/smallDown'
 import { smallUp } from 'react-icons-kit/entypo/smallUp'
 import { iosCloseEmpty } from 'react-icons-kit/ionicons/iosCloseEmpty'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom'
-import { Collapse } from 'react-bootstrap'
-import Divider from '@material-ui/core/Divider';
-// import { auth } from '../config/Config'
-import Button from '@material-ui/core/Button';
-import TreeView from '@material-ui/lab/TreeView';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import TreeItem from '@material-ui/lab/TreeItem';
-// import Modal from '@material-ui/core/Modal';
-// import { StickyContainer, Sticky } from 'react-sticky';
-// import StickyBox from "react-sticky-box";
+import Grid from '@material-ui/core/Grid';
 import {GlobalState} from '../../GlobalState'
 import axios from 'axios'
 import {circleUp} from 'react-icons-kit/icomoon/circleUp'
 import {circleDown} from 'react-icons-kit/icomoon/circleDown'
+import './rightcart.css'
+// import { CartContext } from '../global/CartContext'
+// import { ic_add } from 'react-icons-kit/md/ic_add'
+// import { ic_remove } from 'react-icons-kit/md/ic_remove'
+// import { iosClearhOutline } from 'react-icons-kit/ionicons/iosTrashOutline'
+// import { cross } from 'react-icons-kit/entypo/cross'
+// import { Link } from 'react-router-dom'
+// import { useHistory } from 'react-router-dom'
+// import { Collapse } from 'react-bootstrap'
+// import Divider from '@material-ui/core/Divider';
+// import { auth } from '../config/Config'
+// import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+// import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+// import Modal from '@material-ui/core/Modal';
+// import { StickyContainer, Sticky } from 'react-sticky';
+// import StickyBox from "react-sticky-box";
 // import AppBar from '@material-ui/core/AppBar';
-import Grid from '@material-ui/core/Grid';
+
 
 
 const drawerWidth = 320;
@@ -89,10 +91,13 @@ const useStyles = makeStyles((theme) => ({
     },
     input:{
         marginLeft: '-30px',
-        padding: '4px',
+        // marginTop:'6px',
+        padding: '6px',
         borderRadius: '6px',
+        width:'90px!important',
         border:'none',
         outline:'none',
+        height:'30px!important',
         background:'#EDEDED',
     }
     // drawer: {
@@ -138,8 +143,16 @@ export const Cart = ({}) => {
 
     // const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(CartContext);
     const [open, setOpen] = useState(false);
+    const [openy, setOpeny] = useState(false)
     const classes = useStyles();
     const theme = useTheme();
+    
+    const handleOpen = () => {
+        setOpeny(!openy)
+    }
+    const handleClose = () => {
+        setOpeny(false)
+    }
 
     const handleDrawerOpen = () => {
         setOpen(!open);
@@ -281,8 +294,10 @@ export const Cart = ({}) => {
                         defaultExpandIcon={<Icon icon={circleUp}/>}
                     >
                         <TreeItem  nodeId="1" label="Have a special code?">
-                            <input type='text' placeholder='Special Code' className={classes.input}/> <Button variant="contained" color="secondary">Go</Button> close
-
+                            <div className='cart-btn'>
+                            <input type='text' placeholder='Special Code' className={classes.input}/> 
+                            <Button className='btn-popup' variant="contained" color="secondary">Go</Button> <div onClick={handleClose} >close</div>
+                            </div>
                        </TreeItem>
                     </TreeView>
                  

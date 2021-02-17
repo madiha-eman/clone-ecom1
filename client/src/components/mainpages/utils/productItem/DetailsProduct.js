@@ -141,6 +141,15 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
     const [products] = state.productsAPI.products;
     const addCart = state.userAPI.addCart;
     const [detailProduct, setDetailProduct] = useState([]);
+    const [openy, setOpeny] = React.useState(false);
+
+    const handleDrawerOpen = () => {
+      setOpeny(!openy);
+    };
+  
+    const handleDrawerClose = () => {
+      setOpeny(false);
+    };
   
   //   const [detailImg, setDetailImg] = useState('');
     const [detailImgUrl, setDetailImgUrl] = useState('');
@@ -173,7 +182,7 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
         });
       }
     }, [id, products]);
- 
+   
   //   console.log('>>>>>>>>', detailProduct['images']);
   //   console.log('>>>>>>>>', detailProduct.images);
   // console.log('>>>>>>>>', detailImg.url);
@@ -198,33 +207,37 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
             
             <div className="">
             <Grid container>
-                <Grid item lg={6} md={6}>
+                <Grid item lg={6} md={6} sm={12} xs={12}>
                   <div className='de-img'>
                     <img className='img-1' src={detailImgUrl} alt="" />
                     </div>
                 
                 </Grid>
               <Grid item lg={6} md={6} direction='row'>
-                <Grid>
+                <Grid sm={12} xs={12}>
                   <div className='detail-2'>
                 <h2 className='de-title'>{detailProduct.title}</h2>
                 <Icon className='close-icon' icon={iosCloseEmpty} size={28}  onClick={handleClose}/>
                 </div>
                 </Grid>
-                <Grid>
+                <Grid sm={12}>
                      <p className='de-price0'>
                      ৳
                      <span className='de-price' > {detailProduct.price}</span>
                      </p>
                 </Grid>
-                <Grid direction='column'>
+                <Grid direction='column' sm={12}>
                   <div className='detail-2'>
                   <div className='inc-dec-div'>
                     <span className='dec-3'>-</span>
                     <span className='quan'>0 <span className='quan-sub'>in bag</span></span>
                     <span className='inc-3'>+</span>
                     </div>
-                    <button  className="buy-btn">  <Link
+                    <button  className="buy-btn"  onClick={handleDrawerOpen} 
+                       onClose={handleClose}> 
+
+                      <Link
+                    
                     className='buybtn-link'
                  onClick={() => addCart(detailProduct)}
                >
@@ -269,12 +282,12 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
          </Typography>
          </Grid>
 
-      <Grid item xs={12} sm={12} md={1} xl={1}>
+      <Grid item xs={12} sm={12} md={1} xl={1} className='de-margin'>
       <Typography className={classes.title} variant="h4">
              Pay with
              </Typography>
              </Grid>
-        <Grid item xs={12} sm={12} xl={3} md={4}>
+        <Grid item xs={12} sm={12} xl={3} md={3}>
         <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1638/Default/components/shared/NewFooter/images/Amex.png?q=low&webp=1&alpha=1'  width='25px' height='25px' alt='icon1'/>
         <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1638/Default/components/shared/NewFooter/images/mastercard.png?q=low&webp=1&alpha=1'  width='25px' height='25px' alt='icon2'/>
         <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1638/Default/components/shared/NewFooter/images/VIsa.png?q=low&webp=1&alpha=1' width= '25px' height='25px' alt='icon3'/>
@@ -287,8 +300,8 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
         <Grid container>
           <Grid item md={8} xs={12}>
               <div className="box-detail">
-                <div className="row">
-                </div>
+                {/* <div className="row">
+                </div> */}
                
                 <p>{detailProduct.description}</p>
                 <p>{detailProduct.content}</p>

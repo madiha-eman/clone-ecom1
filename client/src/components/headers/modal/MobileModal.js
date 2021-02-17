@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MobileModal() {
+ function MobileModal() {
   const classes = useStyles();
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged
@@ -134,3 +134,4 @@ const loggedRouter = () =>{
     </div>
   );
 }
+export default MobileModal

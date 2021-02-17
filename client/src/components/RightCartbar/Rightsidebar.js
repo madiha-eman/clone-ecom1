@@ -1,16 +1,16 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles} from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Grid from '@material-ui/core/Grid';
 import {GlobalState} from '../../GlobalState'
-import styled from 'styled-components';
+// import styled from 'styled-components';
 // import AppBar from '@material-ui/core/AppBar';
 // import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 // import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
+// import Divider from '@material-ui/core/Divider';
 import Button from '@material-ui/core/Button';
 // import {CartReducer} from '../global/CartReducer';
 // import { CartContext } from '../global/CartContext'
@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
     // position:'sticky',
     // display: 'block',
     opacity: '.7',
-    background:'#F5FCEB',
+    // background:'#F5FCEB',
     background: 'linear-gradient(to bottom, #55584D 74%, whitesmoke 70%)',
     boxShadow: '0 0 16px -1px rgba(0,0,0,.75)',
     width:"65px",
@@ -150,6 +150,20 @@ export default function Rightsidebar({product}) {
   const classes = useStyles();
   const state = useContext(GlobalState)
   const [cart] = state.userAPI.cart
+  const [total, setTotal] = useState(0)
+
+  useEffect(() =>{
+      const getTotal = () =>{
+          const total = cart.reduce((prev, item) => {
+              return prev + (item.price * item.quantity)
+          },0)
+
+          setTotal(total)
+      }
+
+      getTotal()
+
+  },[cart])
   // const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
@@ -185,7 +199,7 @@ export default function Rightsidebar({product}) {
              <CountUp
             //  value={product.price * product.quantity}
               start={0}
-              end={99}
+              end={total}
               decimals={0} />
                </h5>
              

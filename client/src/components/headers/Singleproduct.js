@@ -8,11 +8,11 @@ import Modal from '@material-ui/core/Modal';
 import { Icon } from 'react-icons-kit'
 import {ellipsisV} from 'react-icons-kit/fa/ellipsisV'
 
-import { Typography } from "@material-ui/core";
+// import { Typography } from "@material-ui/core";
 // import  Signin from "./Signin";
 import '../../css/Home.css'
 // import SingleProduct from "./SingleProduct";
-import {Col,ListGroup,Row } from 'react-bootstrap'
+// import {Col,ListGroup,Row } from 'react-bootstrap'
 // import './modal.css'
 
 

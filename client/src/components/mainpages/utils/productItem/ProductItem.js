@@ -2,18 +2,20 @@ import React, { useContext, useState, useEffect } from 'react'
 import {GlobalState} from '../../../../GlobalState'
 import clsx from 'clsx';
 import axios from 'axios'
-import { makeStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
 import { Icon } from 'react-icons-kit'
-import {arrows_circle_plus} from 'react-icons-kit/linea/arrows_circle_plus'
-import {arrows_circle_minus} from 'react-icons-kit/linea/arrows_circle_minus'
-import {minus} from 'react-icons-kit/metrize/minus'
-import {plus} from 'react-icons-kit/metrize/plus'
-import {Link} from 'react-router-dom'
+import { makeStyles } from '@material-ui/core/styles';
 import '../../../../css/Home.css'
 import BtnRender from './BtnRender'
 import DetailsProduct from './DetailsProduct';
-import Singleproduct from '../../../headers/Singleproduct';
+import {minus} from 'react-icons-kit/metrize/minus'
+import {plus} from 'react-icons-kit/metrize/plus'
+// import Typography from '@material-ui/core/Typography';
+// import {arrows_circle_plus} from 'react-icons-kit/linea/arrows_circle_plus'
+// import {arrows_circle_minus} from 'react-icons-kit/linea/arrows_circle_minus'
+
+// import {Link} from 'react-router-dom'
+
+// import Singleproduct from '../../../headers/Singleproduct';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,14 +52,14 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
     const [title, setTitle] = useState('Add to Shopping Bag');
     const classes = makeStyles();
 
-    const [open, setOpen] = useState(false);
-    const handleDrawerOpen = () => {
-      setOpen(!open);
-    };
+    const [open] = useState(false);
+    // const handleDrawerOpen = () => {
+    //   setOpen(!open);
+    // };
   
-    const handleDrawerClose = () => {
-      setOpen(false);
-    };
+    // const handleDrawerClose = () => {
+    //   setOpen(false);
+    // };
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
     const addCart = state.userAPI.addCart
@@ -133,8 +135,8 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                       <div className={clsx(open && classes.hide)} anchor="right">
                    </div>  
                    </div> 
-                   <div class="middle" onClick={() => addCart(product)} >
-                    <div className={clsx(open && classes.hide)}>
+                   <div class="middle" >
+                    <div className={clsx(open && classes.hide)} onClick={() => addCart(product)}>
                     <div className='shopping-bag0'>
                     
                    <h2 className='shopping-bag' onClick={() => setTitle(<> 
@@ -142,10 +144,10 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
                         <div className='p-bag0' >
 
              
-                        <p className='p-bag' key={product._id}> ৳ {product.price * product.quantity}
+                        <p className='p-bag' key={product._id}> ৳ {product.price}
                           <div className='add-hvr'>
                              <Icon icon={minus} size={26} className='dec1' onClick={() => decrement(product._id)} />
-                                    <div className='quantity-bag'>{product.quantity}</div>
+                                    <div className='quantity-bag'>1</div>
                              <Icon icon={plus} size={26} className='inc1' onClick={() => increment(product._id)} /> 
                                  </div>
                                   </p> </div><span className='p2-bag'>in bag</span></>)}> <span>{title}</span> </h2>
