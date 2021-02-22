@@ -366,7 +366,7 @@ function Header({user,name}) {
         <Grid>
         <AppBar position="fixed" color="#ee496a">
         <Nav>
-          <Grid xs={1} md={1} lg={1}>
+          <Grid item xs={1} md={1} lg={1}>
           <NavIcon to='#'>
          <Icon icon={menu} size={28} alt="" width="30" onClick={showSidebar} /> 
           </NavIcon>
@@ -376,7 +376,7 @@ function Header({user,name}) {
           <img className={classes.egg} src={egg} alt='egg' width='37px'/>
          
           </Grid>
-          <Grid xs={2} md={2} lg={2}>
+          <Grid item xs={2} md={2} lg={2}>
           <Typography className={classes.title1}  variant="h4">
           <Link to="/">{isAdmin ? 'Admin' : '  Chaldal '}</Link>
              
@@ -404,7 +404,7 @@ function Header({user,name}) {
                 <MobileModal/>
             </div>
          {/* <div className='azab' style={styleMenu}> */}
-         <Grid xs={3}  md={3} xl={3} lg={3}>
+         <Grid item xs={3}  md={3} xl={3} lg={3}>
          <div className="help">
          <Typography className={classes.title2} variant="h6">
          <IoIcons.IoMdHelpCircle  className={classes.markicon}/>
@@ -415,7 +415,7 @@ function Header({user,name}) {
             </div>
             </Grid>
             <Divider className={classes.divider} orientation="vertical" />
-            <Grid xs={2} md={2} lg={2} xl={3}>
+            <Grid item xs={2} md={2} lg={2} xl={3}>
           <div className='lang'>
           <Typography className={classes.title3} variant="h6">
              <span className='eng'  > EN </span> | <span> বাং</span> 
