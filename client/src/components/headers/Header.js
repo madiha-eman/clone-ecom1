@@ -1,14 +1,14 @@
-import React, {useContext, useState, useEffect} from 'react'
+import React, {useContext, useState} from 'react'
 import {GlobalState} from '../../GlobalState'
-import Menu from './icon/menu.svg'
-import Close from './icon/close.svg'
-import Cart from './icon/cart.svg'
+// import Menu from './icon/menu.svg'
+// import Close from './icon/close.svg'
+// import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
-import * as FaIcons from 'react-icons/fa';
+// import * as FaIcons from 'react-icons/fa';
 // import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import { Icon } from 'react-icons-kit'
@@ -27,22 +27,22 @@ import Filters from '../subcom/Filters'
 import Footer2 from '../footer/Footer2'
 import MainPages from '../mainpages/Pages'
 import {
-  Modal,
-  MaterialInput,
-  MaterialButton,
+  // Modal,
+  // MaterialInput,
+  // MaterialButton,
   DropdownMenu,
 } from "../MaterialUI";
-import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import Switch from '@material-ui/core/Switch';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormGroup from '@material-ui/core/FormGroup';
-import MenuItem from '@material-ui/core/MenuItem';
-import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
-import { useTranslation } from 'react-i18next';
+// import MenuIcon from '@material-ui/icons/Menu';
+// import AccountCircle from '@material-ui/icons/AccountCircle';
+// import Switch from '@material-ui/core/Switch';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import FormGroup from '@material-ui/core/FormGroup';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
+// import { useTranslation } from 'react-i18next';
 import {menu} from 'react-icons-kit/iconic/menu'
 // import {menu} from 'react-icons-kit/entypo/menu'
-import i18next from 'i18next';
+// import i18next from 'i18next';
 import Rightsidebar from '../RightCartbar/Rightsidebar'
 import BottomAppBar from './bottomheader/BottomAppBar'
 import SigninModal from '../mainpages/auth/SigninModal'
@@ -257,48 +257,48 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Header({user,name}) {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
-  function handleClick(lang) {
-    i18next.changeLanguage(lang)
-  }
+  // function handleClick(lang) {
+  //   i18next.changeLanguage(lang)
+  // }
   // const [sort, setSort] = state.productsAPI.sort
 
 
 
     const classes = useStyles();
     const state = useContext(GlobalState)
-    const [isLogged] = state.userAPI.isLogged
+    // const [isLogged] = state.userAPI.isLogged
     const [isAdmin] = state.userAPI.isAdmin
-    const [cart] = state.userAPI.cart
+    // const [cart] = state.userAPI.cart
     // const [menu, setMenu] = useState(false)
     const [search, setSearch] = state.productsAPI.search
-    const [category, setCategory] = state.productsAPI.category
+    const [ setCategory] = state.productsAPI.category
 
 
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
+    // const [, setAuth] = React.useState(true);
+    // const [ setAnchorEl] = React.useState(null);
+    // const open = Boolean(anchorEl);
 
  
-    const handleChange = (event) => {
-      setAuth(event.target.checked);
-    };
+    // const handleChange = (event) => {
+    //   setAuth(event.target.checked);
+    // };
   
-    const handleMenu = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
+    // const handleMenu = (event) => {
+    //   setAnchorEl(event.currentTarget);
+    // };
   
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+    // const handleClose = () => {
+    //   setAnchorEl(null);
+    // };
   
 
 
-    const handleCategory = e => {
-        setCategory(e.target.value)
-        setSearch('')
-    }
+    // const handleCategory = e => {
+    //     setCategory(e.target.value)
+    //     setSearch('')
+    // }
     const [sidebar, setSidebar] = useState(false);
     const showSidebar = () => 
     setSidebar(!sidebar);
@@ -418,7 +418,7 @@ function Header({user,name}) {
             <Grid xs={2} md={2} lg={2} xl={3}>
           <div className='lang'>
           <Typography className={classes.title3} variant="h6">
-             <span className='eng' onClick={()=>handleClick('en')} > EN </span> | <span onClick={()=>handleClick('ko')}> বাং</span> 
+             <span className='eng'  > EN </span> | <span> বাং</span> 
              
             </Typography>
             </div>

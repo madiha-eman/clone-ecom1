@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState } from 'react'
 import {GlobalState} from '../../../../GlobalState'
 import clsx from 'clsx';
 import axios from 'axios'
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
   }));
 function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
     const [title, setTitle] = useState('Add to Shopping Bag');
-    const classes = makeStyles();
+    const classes = makeStyles(useStyles);
 
     const [open] = useState(false);
     // const handleDrawerOpen = () => {
@@ -64,20 +64,20 @@ function ProductItem({product, isAdmin, deleteProduct, handleCheck}) {
     const [cart, setCart] = state.userAPI.cart
     const addCart = state.userAPI.addCart
     const [token] = state.token
-    const [total, setTotal] = useState(0)
+    // const [total,setTotal] = useState(0)
 
-    useEffect(() =>{
-        const getTotal = () =>{
-            const total = cart.reduce((prev, item) => {
-                return prev + (item.price * item.quantity)
-            },0)
+  //   useEffect(() =>{
+  //     const getTotal = () =>{
+  //         const total = cart.reduce((prev, item) => {
+  //             return prev + (item.price * item.quantity)
+  //         },0)
 
-            setTotal(total)
-        }
+  //         setTotal(total)
+  //     }
 
-        getTotal()
+  //     getTotal()
 
-    },[cart])
+  // },[cart])
 
     const addToCart = async (cart) =>{
         await axios.patch('/user/addcart', {cart}, {

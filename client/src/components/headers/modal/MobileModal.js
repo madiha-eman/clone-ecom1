@@ -1,8 +1,8 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import {GlobalState} from '../../../GlobalState'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
-import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
+// import {ic_more_vert} from 'react-icons-kit/md/ic_more_vert'
 import { Icon } from 'react-icons-kit'
 import {Link} from 'react-router-dom'
 import {userPlus} from 'react-icons-kit/icomoon/userPlus'
