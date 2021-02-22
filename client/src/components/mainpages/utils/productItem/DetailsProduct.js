@@ -1,5 +1,5 @@
 import React, {useContext, useState, useEffect} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import {GlobalState} from '../../../../GlobalState'
 import { iosCloseEmpty } from 'react-icons-kit/ionicons/iosCloseEmpty'
 import { Icon } from 'react-icons-kit'
@@ -12,8 +12,8 @@ import Modal from '@material-ui/core/Modal';
 import { Grid, Typography } from "@material-ui/core";
 // import  Signin from "./Signin";
 // import SingleProduct from "./SingleProduct";
-import {Col,ListGroup,Row } from 'react-bootstrap'
-import DetailProduct from "../../detailProduct/DetailProduct";
+// import {Col,ListGroup,Row } from 'react-bootstrap'
+// import DetailProduct from "../../detailProduct/DetailProduct";
 
 
 
@@ -88,7 +88,6 @@ const useStyles = makeStyles(theme => ({
       },
     },
     title4:{
-      fontSize:'bold',
       fontSize: '10px',
       fontWeight: 'bold',
       [theme.breakpoints.up('sm','md')]: {
@@ -136,7 +135,7 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
-    const params = useParams();
+    // const params = useParams();
     const state = useContext(GlobalState);
     const [products] = state.productsAPI.products;
     const addCart = state.userAPI.addCart;
@@ -147,9 +146,9 @@ const DetailsProduct = ({ id, product, isAdmin, deleteProduct, handleCheck }) =>
       setOpeny(!openy);
     };
   
-    const handleDrawerClose = () => {
-      setOpeny(false);
-    };
+    // const handleDrawerClose = () => {
+    //   setOpeny(false);
+    // };
   
   //   const [detailImg, setDetailImg] = useState('');
     const [detailImgUrl, setDetailImgUrl] = useState('');

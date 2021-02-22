@@ -2,19 +2,19 @@ import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom'
 import {DataProvider} from './GlobalState'
 import Header from './components/headers/Header'
-import i18next from 'i18next';
-import { useTranslation } from 'react-i18next';
+// import i18next from 'i18next';
+// import { useTranslation } from 'react-i18next';
 // import MainPages from './components/mainpages/Pages'
 // import DetailsProduct from './components/mainpages/utils/productItem/DetailsProduct';
 // import Singleproduct from './components/headers/Singleproduct';
 
 
 function App() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
-  function handleClick(lang) {
-    i18next.changeLanguage(lang)
-  }
+  // function handleClick(lang) {
+  //   i18next.changeLanguage(lang)
+  // }
   return (
     <DataProvider>
       <Router>

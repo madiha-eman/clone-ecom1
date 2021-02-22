@@ -7,43 +7,43 @@ import {minus} from 'react-icons-kit/metrize/minus'
 import {plus} from 'react-icons-kit/metrize/plus'
 import {Link} from 'react-router-dom'
 import BtnRender from '../mainpages/utils/productItem/BtnRender'
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import { Icon } from 'react-icons-kit'
 import '../../css/Home.css'
 
-const useStyles = makeStyles((theme) => ({
-    drawerHeader: {
-      display: 'flex',
-      alignItems: 'center',
-      padding: theme.spacing(0, 1),
-      // necessary for content to be below app bar
-      ...theme.mixins.toolbar,
-      justifyContent: 'flex-end',
-    },
-    hide: {
-      display: 'none',
+// const useStyles = makeStyles((theme) => ({
+//     drawerHeader: {
+//       display: 'flex',
+//       alignItems: 'center',
+//       padding: theme.spacing(0, 1),
+//       // necessary for content to be below app bar
+//       ...theme.mixins.toolbar,
+//       justifyContent: 'flex-end',
+//     },
+//     hide: {
+//       display: 'none',
   
-    },
-    content: {
-      flexGrow: 8,
-      padding: theme.spacing(3),
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      marginLeft: -10,
-    },
-    contentShift: {
-      transition: theme.transitions.create('margin', {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-      marginLeft: 0,
-    },
-  }));
+//     },
+//     content: {
+//       flexGrow: 8,
+//       padding: theme.spacing(3),
+//       transition: theme.transitions.create('margin', {
+//         easing: theme.transitions.easing.sharp,
+//         duration: theme.transitions.duration.leavingScreen,
+//       }),
+//       marginLeft: -10,
+//     },
+//     contentShift: {
+//       transition: theme.transitions.create('margin', {
+//         easing: theme.transitions.easing.easeOut,
+//         duration: theme.transitions.duration.enteringScreen,
+//       }),
+//       marginLeft: 0,
+//     },
+//   }));
 function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
     const [title, setTitle] = useState('Add to Shopping Bag');
-    const classes = makeStyles();
+    // const classes = makeStyles(useStyles);
     const { id } = useParams();
 
     var [catProducts, setCatProducts] = useState([]);
@@ -57,7 +57,7 @@ function SingleCategory({product, isAdmin, deleteProduct, handleCheck}) {
             })
             .catch((e) => console.log(e));
 
-        }, [])
+        }, [id])
 
         console.log(catProducts)
 

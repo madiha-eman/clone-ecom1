@@ -99,8 +99,8 @@ const useStyles = makeStyles((theme) => ({
   cart1:{
       background: '#e4e0e1',
       height:'39px',
-      paddingTop:'1.5px',
-      paddingBottom:'1.5px',
+      paddingTop:'1.9px',
+      paddingBottom:'2.5px',
       [theme.breakpoints.up('sm')]: {
         display: 'block',
                                                          
@@ -187,7 +187,7 @@ export default function Rightsidebar({product}) {
         })} */}
       {/* > */}
  
-      <div style={{ position:'fixed', right: 0, marginTop:'20%',}} className={clsx(open && classes.hide)} className="bottom" anchor="right">
+      <div style={{ position:'fixed', right: 0, marginTop:'20%',}}  className="bottom" anchor="right">
      
           <Button
             onClick={handleDrawerOpen}
@@ -234,7 +234,7 @@ export default function Rightsidebar({product}) {
         {/* <Divider /> */}
         <div className='cont'>
         <Grid direction='row' onClick={handleDrawerClose} position='fixed'  className={classes.cart1}>
-        <Typography position='fixed'  varient='h3' onClick={handleDrawerClose} className={classes.cart1}>0 ITEMS
+        <Typography position='fixed'  varient='h3' onClick={handleDrawerClose} className={classes.cart1}>{cart.length} ITEMS
     <Button onClick={handleDrawerClose} className={classes.cartclose}>Close</Button>
     </Typography>
     </Grid>

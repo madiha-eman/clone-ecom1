@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext} from 'react'
 import './style.css'
 import {GlobalState} from '../../../GlobalState'
 import {Link} from 'react-router-dom'
@@ -96,7 +96,7 @@ const Signin = () => {
   const state = useContext(GlobalState)
   const [isLogged] = state.userAPI.isLogged
   const [isAdmin] = state.userAPI.isAdmin
-  const [title, setTitle] = useState();
+  // const [ setTitle] = useState();
 
   const logoutUser = async () =>{
     await axios.get('/user/logout')
@@ -125,7 +125,7 @@ const loggedRouter = () =>{
     return(
         <>
            <DropdownMenu
-    menu={<a className="fullName">user name</a>}
+    menu={<span className="fullName">user name</span>}
     menus={[
       { label: "My Profile", href: "", icon: null },
     
@@ -163,6 +163,7 @@ const loggedRouter = () =>{
        className={classes.button1}
        startIcon={<EmailIcon style={{color:'orange',}} />}>
            <span className={classes.email1}>Login with </span> <span className={classes.email2}>
+           {isAdmin && adminRouter()}
            {
                      isLogged ? loggedRouter() :<Link to="/login">{isAdmin ? 'Admin' :'Email' }</Link>
                 }

@@ -1,6 +1,6 @@
 import React, {useContext, useState, useEffect} from 'react'
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import TreeView from '@material-ui/lab/TreeView';
 import { Icon } from 'react-icons-kit'
@@ -139,28 +139,28 @@ const useStyles = makeStyles((theme) => ({
     //   marginrRight: 0,
     // },
 }));
-export const Cart = ({}) => {
+export const Cart = () => {
 
     // const { shoppingCart, dispatch, totalPrice, totalQty } = useContext(CartContext);
-    const [open, setOpen] = useState(false);
-    const [openy, setOpeny] = useState(false)
+    const [open] = useState(false);
+    // const [setOpeny] = useState(false)
     const classes = useStyles();
-    const theme = useTheme();
+    // const theme = useTheme();
     
-    const handleOpen = () => {
-        setOpeny(!openy)
-    }
-    const handleClose = () => {
-        setOpeny(false)
-    }
+    // const handleOpen = () => {
+    //     setOpeny(!openy)
+    // }
+    // const handleClose = () => {
+    //     setOpeny(false)
+    // }
 
-    const handleDrawerOpen = () => {
-        setOpen(!open);
-    };
+    // const handleDrawerOpen = () => {
+    //     setOpen(!open);
+    // };
 
-    const handleDrawerClose = () => {
-        setOpen(false);
-    };
+    // const handleDrawerClose = () => {
+    //     setOpen(false);
+    // };
     const state = useContext(GlobalState)
     const [cart, setCart] = state.userAPI.cart
     const [token] = state.token
@@ -220,17 +220,17 @@ export const Cart = ({}) => {
         }
     
 
-    const tranSuccess = async(payment) => {
-        const {paymentID, address} = payment;
+    // const tranSuccess = async(payment) => {
+    //     const {paymentID, address} = payment;
 
-        await axios.post('/api/payment', {cart, paymentID, address}, {
-            headers: {Authorization: token}
-        })
+    //     await axios.post('/api/payment', {cart, paymentID, address}, {
+    //         headers: {Authorization: token}
+    //     })
 
-        setCart([])
-        addToCart([])
-        alert("You have successfully placed an order.")
-    }
+    //     setCart([])
+    //     addToCart([])
+    //     alert("You have successfully placed an order.")
+    // }
 
  
      
@@ -239,19 +239,18 @@ export const Cart = ({}) => {
         <>
             <>  
                 <div style={{ right: 0, }} className={clsx(open && classes.hide)} anchor="right">
-                <img src='' />
             </div>
                 {cart.length !== 0}
                 <div className='cart-container'>
                  
                       {cart.length === 0 && <> 
                             <div style={{ marginLeft:'30px', marginTop:'50px',}} className={clsx(open && classes.hide)} anchor="right">
-                                <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1704/Default/components/header/ShoppingCart/images/emptyShoppingBag.png?q=low&webp=1&alpha=1' />
+                                <img src='https://cdn.chaldal.net/asset/Egg.Grocery.Fabric/Egg.Grocery.Web/1.5.0+Release-1704/Default/components/header/ShoppingCart/images/emptyShoppingBag.png?q=low&webp=1&alpha=1' alt='cartimg'/>
                                 <h2 className='shopping-bag'>Your shopping bag is empty. Start shopping </h2>
                             </div>
                         </>
                     }
-                    
+          
             {
                 cart.map(product => (
                     <div className="cart-card" key={product._id}>
@@ -280,6 +279,7 @@ export const Cart = ({}) => {
                     // </div>
                 ))
             }
+       
 
             <div>
         </div>
@@ -296,7 +296,7 @@ export const Cart = ({}) => {
                         <TreeItem  nodeId="1" label="Have a special code?">
                             <div className='cart-btn'>
                             <input type='text' placeholder='Special Code' className={classes.input}/> 
-                            <Button className='btn-popup' variant="contained" color="secondary">Go</Button> <div onClick={handleClose} >close</div>
+                            <Button className='btn-popup' variant="contained" color="secondary">Go</Button> <div >close</div>
                             </div>
                        </TreeItem>
                     </TreeView>

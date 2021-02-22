@@ -4,7 +4,7 @@ import {GlobalState} from '../../GlobalState'
 // import Close from './icon/close.svg'
 // import Cart from './icon/cart.svg'
 import {Link} from 'react-router-dom'
-import axios from 'axios'
+// import axios from 'axios'
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import styled from 'styled-components';
@@ -273,7 +273,7 @@ function Header({user,name}) {
     // const [cart] = state.userAPI.cart
     // const [menu, setMenu] = useState(false)
     const [search, setSearch] = state.productsAPI.search
-    const [ setCategory] = state.productsAPI.category
+    // const [ setCategory] = state.productsAPI.category
 
 
     // const [, setAuth] = React.useState(true);
@@ -304,13 +304,13 @@ function Header({user,name}) {
     setSidebar(!sidebar);
   
 
-    const logoutUser = async () =>{
-        await axios.get('/user/logout')
+    // const logoutUser = async () =>{
+    //     await axios.get('/user/logout')
         
-        localStorage.removeItem('firstLogin')
+    //     localStorage.removeItem('firstLogin')
         
-        window.location.href = "/";
-    }
+    //     window.location.href = "/";
+    // }
 
     const adminRouter = () =>{
         return(
@@ -327,28 +327,28 @@ function Header({user,name}) {
         )
     }
 
-    const loggedRouter = () =>{
-        return(
-            <>
-               <DropdownMenu
-        menu={<a className="fullName">user name</a>}
-        menus={[
-          { label: "My Profile", href: "", icon: null },
+    // const loggedRouter = () =>{
+    //     return(
+    //         <>
+    //            <DropdownMenu
+    //     menu={<a className="fullName">user name</a>}
+    //     menus={[
+    //       { label: "My Profile", href: "", icon: null },
         
-          {
-            label: "History",
-            href: `/history`,
-            icon: null,
-          },
+    //       {
+    //         label: "History",
+    //         href: `/history`,
+    //         icon: null,
+    //       },
          
-          { label: "Logout", href: "", icon: null, onClick:logoutUser },
+    //       { label: "Logout", href: "", icon: null, onClick:logoutUser },
           // { label: "Create Product", href: "/create_product", icon: null, isAdmin:adminRouter },  
       
-        ]}
-      />
-            </>
-        )
-    }
+        // ]}
+      // />
+            // </>
+        // )
+    // }
 
 
     // const styleMenu = {

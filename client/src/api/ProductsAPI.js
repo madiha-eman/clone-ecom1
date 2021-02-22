@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { useTranslation } from 'react-i18next';
+// import { useTranslation } from 'react-i18next';
 import axios from 'axios'
 
 
@@ -11,7 +11,7 @@ function ProductsAPI() {
     const [search, setSearch] = useState('')
     const [page, setPage] = useState(1)
     const [result, setResult] = useState(0)
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
 
   
 
