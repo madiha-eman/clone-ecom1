@@ -15,9 +15,9 @@ import {iosPlusEmpty} from 'react-icons-kit/ionicons/iosPlusEmpty'
 // import {socialFacebookOutline} from 'react-icons-kit/ionicons/socialFacebookOutline'
 import { Icon } from 'react-icons-kit'
 import {
-  Modal,
-  MaterialInput,
-  MaterialButton,
+  // Modal,
+  // MaterialInput,
+  // MaterialButton,
   DropdownMenu,
 } from "../../MaterialUI";
 // import TextField from '@material-ui/core/TextField';
