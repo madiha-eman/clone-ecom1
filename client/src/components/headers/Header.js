@@ -371,7 +371,7 @@ function Header({user,name}) {
          <Icon icon={menu} size={28} alt="" width="30" onClick={showSidebar} /> 
           </NavIcon>
           </Grid>
-          <Grid xs={0} md={0} lg={0}>
+          <Grid item xs={0} md={0} lg={0}>
          
           <img className={classes.egg} src={egg} alt='egg' width='37px'/>
          
@@ -382,7 +382,7 @@ function Header({user,name}) {
              
             </Typography>
             </Grid>
-            <Grid xs={8} sm={9} md={8} lg={8} xl={8}>
+            <Grid item xs={8} sm={9} md={8} lg={8} xl={8}>
           <Paper component="form" className={classes.root2}>
           {/* <input type="text" value={search} placeholder="Enter your search!"
             onChange={e => setSearch(e.target.value.toLowerCase())} /> */}
@@ -458,7 +458,7 @@ function Header({user,name}) {
   
   
           <div className={classes.drawerHeader} />
-          <Typography paragraph>
+          <Typography paragraph varient='h5'>
           {/* <Rghtsidebar /> */}
           {/* <Rightsidebar/>
          <Products/>  */}

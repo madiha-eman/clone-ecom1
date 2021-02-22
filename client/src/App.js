@@ -16,9 +16,9 @@ function App() {
   //   i18next.changeLanguage(lang)
   // }
   return (
+    <div className="App">
     <DataProvider>
       <Router>
-        <div className="App">
           <Header />
           {/* <button onClick={()=>handleClick('en')}>
             english
@@ -27,10 +27,10 @@ function App() {
           korean
           </button> */}
           {/* <h2>{t('thanks')}</h2> */}
-        </div>
       </Router>
     </DataProvider>
-   
+    </div>
+
   );
 }
 
