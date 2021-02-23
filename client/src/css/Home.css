@@ -8,6 +8,11 @@
         width: 100%;
     }
 }
+.bottom{
+    position: fixed !important;;
+    right: 0!important;
+    margin: top 20% !important;;
+}
 @media(max-width: 720px) {
     .bottom {
        /* margin-top: 50%!important; */

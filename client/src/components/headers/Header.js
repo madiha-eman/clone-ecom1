@@ -364,14 +364,14 @@ function Header({user,name}) {
         <>
         <IconContext.Provider value={{ color: 'black' }}>
         <Grid>
-        <AppBar position="fixed" color="#ee496a">
+        <AppBar position="fixed">
         <Nav>
           <Grid item xs={1} md={1} lg={1}>
           <NavIcon to='#'>
          <Icon icon={menu} size={28} alt="" width="30" onClick={showSidebar} /> 
           </NavIcon>
           </Grid>
-          <Grid item xs={0} md={0} lg={0}>
+          <Grid item>
          
           <img className={classes.egg} src={egg} alt='egg' width='37px'/>
          
@@ -424,7 +424,7 @@ function Header({user,name}) {
             </div>
             </Grid>
             <Divider className={classes.divider} orientation="vertical" />
-            <Grid xs={3} md={3} xl={3}>
+            <Grid item xs={3} md={3} xl={3}>
           <div className="div-signin">
           {isAdmin && adminRouter()}
           <SigninModal/>
@@ -458,7 +458,7 @@ function Header({user,name}) {
   
   
           <div className={classes.drawerHeader} />
-          <Typography paragraph varient='h5'>
+          <Typography paragraph variant='h5'>
           {/* <Rghtsidebar /> */}
           {/* <Rightsidebar/>
          <Products/>  */}

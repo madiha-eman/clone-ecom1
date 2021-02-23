@@ -187,12 +187,14 @@ export default function Rightsidebar({product}) {
         })} */}
       {/* > */}
  
-      <div style={{ position:'fixed', right: 0, marginTop:'20%',}}  className="bottom" anchor="right">
+      <div
+       style={{ position:'fixed', right: 0, marginTop:'20%',}} 
+       className="bottom" >
      
           <Button
             onClick={handleDrawerOpen}
             className={classes.hid}
-            variant="permanent"
+            
           >
              <span className='no-of-products'>{cart.length} ITEMS</span>
              <h5 className='price-of-products'> ৳ 
@@ -233,7 +235,7 @@ export default function Rightsidebar({product}) {
         </div> */}
         {/* <Divider /> */}
         <div className='cont'>
-        <Grid direction='row' onClick={handleDrawerClose} position='fixed'  className={classes.cart1}>
+        <Grid container direction='row' onClick={handleDrawerClose} position='fixed'  className={classes.cart1}>
         <Typography position='fixed'  varient='h3' onClick={handleDrawerClose} className={classes.cart1}>{cart.length} ITEMS
     <Button onClick={handleDrawerClose} className={classes.cartclose}>Close</Button>
     </Typography>
